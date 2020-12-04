@@ -1,0 +1,31 @@
+.App {
+  text-align: center;
+  
+}
+
+.App-header {
+  background-color: #03215c;
+  min-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.App header p{
+  font-size: 15px;
+}
+.form{
+  border: 3px solid gray;
+  background-color: blue;
+  border-width: 40px;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+
+
