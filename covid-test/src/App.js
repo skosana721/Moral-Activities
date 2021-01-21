@@ -1,55 +1,87 @@
 import React, { useState } from "react";
 import "./App.css";
 import Form from "./component/Form";
+// import { v4 as uuidv4 } from "uuid";
 
-function App () {
+function App() {
   const [formInfo, setFormInfo] = useState({
+    
     name: "",
     surname: "",
     result: "",
   });
-  const [data, setData] = useState([]);
-  const [total, setTotal] = useState({ positiveNo: null, negativeNo: null , totalResult: null}); 
+  const [patientInfo, setPatientInfo] = useState([]);
+  const [recoveryStatus, setRecoveryStatus] = useState(null);
+  const [deadPatients, setDeadPatients] = useState(null);
+  const [recoveredPatients, setRecoveredPatients] = useState(null)
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormInfo({ ...formInfo, [name]: value });
   };
   const handleSubmit = (e) => {
+    const { name, surname, result} = formInfo;
     e.preventDefault();
-    setData([...data, formInfo]);
-
+    if (name && surname && result) {
+      const newPatient = { ...formInfo, name, surname, result };
+      setPatientInfo([...patientInfo, newPatient]);
+      
+    }
+  };
+  const setUpdates = () => {
+    
+    let filtered = patientInfo.filter((person,index) => person[index] !== index)
+    
+    if (recoveryStatus && patientInfo !== null) {
+      setRecoveredPatients(patientInfo)
+      setPatientInfo( filtered)
+    } else {
+      
+      setDeadPatients(patientInfo);
+      setPatientInfo( filtered);
+    }
+    
+  };
+  const recovered = () => {
+    setRecoveryStatus(true);
   
   };
-  const testedPositive = (data) => {
-    let number = 0;
-    for (let i = 0; i < data.length; i++) {
-      if (data[i].result === "positive") {
-        number++;
-      }
-    }
-    setTotal({ ...total, positiveNo: number });
-    console.log("positive", total.positiveNo);
-    return number;
-  };
-  const testedNegative = (data) => {
-    let number = 0;
-    for (let i = 0; i < data.length; i++) {
-      if (data[i].result === "negative") {
-        number++;
-      }
-    }
-    setTotal({ ...total, negativeNo: number });
-
-    return number;
-  };
+  const died = () => {
+    setRecoveryStatus(false);
   
-  const totalTest = () => {
-    let results = testedPositive(data) + testedNegative(data);
-    setTotal({...total, totalResult: results})
+  };
+  const filteredPatients = () =>
+    patientInfo
+      .filter((patient) => patient.result === "positive")
+      .map((person,index) => {
+        const { name, surname } = person;
+        return (
+          <div key={index} className="item">
+            <h3>
+              {name} {surname}
+            </h3>
+            <input
+              type="radio"
+              name="status"
+              id="die"
+              value="die"
+              onClick={died}
+            />
+            <label htmlFor="die">Dead</label>
+            <input
+              type="radio"
+              name="status"
+              id="recovered"
+              value="recovered"
+              onClick={recovered}
+            />
+            <label htmlFor="recovered">Recovered</label>
+            <button onClick={setUpdates}>Update</button>
+          </div>
+        );
+      });
 
-    console.log(results)
-  }
-  const { negativeNo, positiveNo , totalResult} = total;
+  console.log("recovery", recoveryStatus);
   return (
     <div className="App">
       <header className="App-header">
@@ -60,30 +92,57 @@ function App () {
         handleChange={handleChange}
         handleSubmit={handleSubmit}
       />
-      <h2>List</h2>
-    
-      {data !== null
-        ? data.map((person, index) => {
-            const { name, surname, result } = person;
-            return (
-              <div key={index} className="item">
-                <h4>
-                  {name} {surname} {result}
-                </h4>
-              </div>
-            );
-          })
-          : null}
-      <button onClick={() => testedPositive(data)} className="btn">
-        Positive
-      </button>
-      {positiveNo === null ? null : positiveNo}
-      <button onClick={() => testedNegative(data)} className="btn">
-        Negative
-      </button>
-      {negativeNo === null ? null : negativeNo}
-      <button onClick={() => totalTest()} className='btn'>Total</button>
-      {totalResult === null? null: totalResult}
+      <h1>Patients List</h1>
+
+      <section className="test-container">
+        <div>
+          <h2>Positive Patients</h2>
+          {filteredPatients()}
+        </div>
+        <div>
+          <h2>Negative Patients</h2>
+          {patientInfo
+            .filter((patient) => patient.result === "negative")
+            .map((person,index) => {
+              const { name, surname } = person;
+
+              return (
+                <div key={index} className="item">
+                  <h3>
+                    {name} {surname}
+                  </h3>
+                </div>
+              );
+            })}
+        </div>
+        <div>
+          <h1>Dead Patients</h1>
+          {deadPatients !== null
+            ? deadPatients.map((patient, index) => (
+                <div key={index} className="item">
+                  <h3>
+                    {patient.name} {patient.surname}
+                  </h3>
+                </div>
+              ))
+            : null}
+        </div>
+        <div>
+          <h1>Recovered Patients</h1>
+          {recoveredPatients !== null
+            ? recoveredPatients.map((patient, index) => {
+                return (
+                  <div key={index} className="item">
+                    <h3>
+                      {patient.name} {patient.surname}
+                    </h3>
+                  </div>
+                );
+              })
+            : null}
+        </div>
+      </section>
+      {console.log(patientInfo)}
     </div>
   );
 }

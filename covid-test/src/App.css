@@ -3,7 +3,7 @@
 }
 .App-header {
   background-color: #282c34;
-  min-height:20vh;
+  min-height: 20vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,7 +49,7 @@
   --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
   --max-width: 1170px;
-  --fixed-width: 450px;
+  --fixed-width: 400px;
   --clr-orange-1: hsl(12, 83%, 98%);
   --clr-orange-2: hsl(14, 91%, 95%);
   --clr-orange-3: hsl(12, 89%, 89%);
@@ -118,12 +118,11 @@
   display: flex;
   justify-content: space-between;
   max-width: var(--fixed-width);
-  margin: 2rem auto;
+  margin: 1.3rem auto;
   align-items: center;
   border-radius: var(--radius);
 }
-.item button,
-.item a {
+.item button {
   background: transparent;
   border-color: transparent;
   color: var(--clr-primary-5);
@@ -131,11 +130,16 @@
   cursor: pointer;
 }
 .item {
-  padding: 1rem 2rem;
+  padding: 0.5rem 1.5rem;
 }
 .item h4 {
   margin-bottom: 0;
 }
 .item p {
-  margin-bottom: 0;
+  margin-bottom: 1rem;
 }
+.test-container {
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+}
+
