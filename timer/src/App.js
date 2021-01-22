@@ -28,14 +28,15 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">timer</header>
-      <section>
-        <div>
+      <section className='container'>
+        <div className='btn'>
           <button onClick={() => setIsActive(!isActive)}>Start</button>
           <button onClick={reset}>Reset</button>
         </div>
+      <div className='value'>
+        <h1>{timer !== 0 ? timer : name}</h1>
+      </div>
       </section>
-
-      {timer !== 0 ? timer : name}
     </div>
   );
 }
