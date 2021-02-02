@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import {useDispatch} from 'react-redux'
+import { saveInfo } from "../redux/form/action";
 
 function Form() {
   const [formInfo, setFormInfo] = useState({
@@ -9,12 +11,14 @@ function Form() {
     place: "",
     allergy: "",
   });
+  const dispatch = useDispatch()
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormInfo({ ...formInfo, [name]: value });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(saveInfo(formInfo))
     console.log("info", formInfo);
   };
 
