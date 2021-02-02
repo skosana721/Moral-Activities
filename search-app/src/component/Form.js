@@ -14,27 +14,33 @@ function Form() {
       setFormInfo({...formInfo,
           [name]: value,
         });
-    };
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("info", formInfo);
+  }
+  
     const { name, surname, ID, age, place, allergy } = formInfo;
     return (
         <div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           name="name"
           id=""
           placeholder="Name"
           onChange={handleChange}
-          value={name}
+            value={name}
+            required
           />
         <input
           type="text"
-          name="Surname"
+          name="surname"
           id=""
           placeholder="surname"
           onChange={handleChange}
           value={surname}
-          />
+          required/>
         <input
           type="number"
           name="ID"
@@ -42,7 +48,7 @@ function Form() {
           placeholder="ID Number"
           onChange={handleChange}
           value={ID}
-          />
+          required/>
         <input
           type="number"
           name="age"
@@ -50,7 +56,7 @@ function Form() {
           placeholder="Age"
           onChange={handleChange}
           value={age}
-          />
+          required/>
         <input
           type="text"
           name="place"
@@ -58,7 +64,7 @@ function Form() {
           placeholder="Place"
           onChange={handleChange}
           value={place}
-          />
+          required/>
         <textarea
           name="allergy"
           id=""
@@ -67,10 +73,10 @@ function Form() {
           placeholder="Allergy"
           onChange={handleChange}
           value={allergy}
-          ></textarea>
+          required></textarea>
         <button type="submit">Submit</button>
             </form>
-            {console.log('info', formInfo.name)}
+            
     </div>
   );
 }
