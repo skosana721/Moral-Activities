@@ -1,6 +1,6 @@
 import React from 'react'
 
-function SeachBar() {
+function SearchBar() {
     return (
         <div>
             
@@ -8,4 +8,4 @@ function SeachBar() {
     )
 }
 
-export default SeachBar
+export default SearchBar
