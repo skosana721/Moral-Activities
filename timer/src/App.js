@@ -1,31 +1,34 @@
-import React, { useEffect, useState } from "react";
 import "./App.css";
+import React, { useEffect, useState } from "react";
+import Form from "./component/form";
+import { useDispatch, useSelector } from "react-redux";
+import { updateState, startTimer } from "./Redux/actions";
 
 function App() {
-  const [timer, setTimer] = useState(10);
-  const [isActive, setIsActive] = useState(false);
-  const [name, setName] = useState("Wongani");
+  const [timer, setTimer] = useState("");
+  const dispatch = useDispatch();
+  const { count, isActive, name } = useSelector((state) => state);
   useEffect(() => {
-    
     let interval;
-    if (  isActive) {
-      if (timer > 0) {
-        interval = setInterval(() => {
-          setTimer((preState) => {
-            return preState - 1;
-          });
-        }, 1000);
-        
+    if (isActive) {
+      if (count > 0) {
+        interval = setImmediate(() => count - 1, 1000);
       }
-    } 
-
+    }
     return () => {
       clearInterval(interval);
     };
-  }, [isActive, timer]);
-  const reset = () => {
-    setTimer(60);
-    setIsActive(false);
+  }, [isActive, count, dispatch]);
+
+  const handleChange = (e) => {
+    setTimer(e.target.value);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (timer) {
+      dispatch(updateState(parseFloat(timer)));
+      setTimer("");
+    }
   };
   return (
     <div className="App">
@@ -33,13 +36,18 @@ function App() {
         <h1>Timer</h1>
         <p>A simple countdown timer</p>
       </header>
+      <Form
+        timer={timer}
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+      />
+
       <section className="container">
         <div className="btn">
-          <button onClick={() => setIsActive(!isActive)}>Start</button>
-          <button onClick={reset}>Reset</button>
+          <button onClick={() => dispatch(startTimer())}>Start</button>
         </div>
         <div className="value">
-          {timer !== 0 ? <h2>{timer} </h2> : <h1>{name}</h1>}
+          {count === 0 ? <h1>{name} </h1> : <h2>{count}</h2>}
         </div>
       </section>
     </div>

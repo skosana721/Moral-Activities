@@ -8,6 +8,7 @@
 
 .App {
   text-align: center;
+  position: relative;
 }
 
 .App-header {
@@ -29,12 +30,15 @@
 }
 
 .container {
-  width: 400px;
+  width: 21vw;
   display: grid;
   grid-template-rows: repeat(2, 1fr);
   margin: 5rem;
   border-radius: 1rem;
   background-color: rgba(29,29,29,1) ;
+  position: absolute;
+  left: 50%;
+  transform: translate(-70%, -10%);
 }
 
 .btn {
@@ -79,4 +83,34 @@
   background-position: right center;
   color: #fff;
   text-decoration: none;
+}
+.form {
+  background: lightsteelblue;
+  max-width: 400px;
+  margin: 2rem auto;
+  margin-bottom: 4rem;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+}
+.form input {
+  background: white;
+  border-color: transparent;
+  border-radius: 5px;
+  padding: 0.25rem 0.5rem;
+}
+.form input:focus{
+  background-color: #89CFF0;
+  color: black;
+}
+.form button {
+  display: inline-block;
+  background: var(--clr-black);
+  color: var(--clr-white);
+  border-color: transparent;
+  margin-top: 1rem;
+  letter-spacing: var(--spacing);
+  padding: 0.15rem 0.25rem;
+  text-transform: capitalize;
+  border-radius: var(--radius);
+  cursor: pointer;
 }
