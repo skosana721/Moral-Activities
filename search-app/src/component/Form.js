@@ -1,20 +1,28 @@
-import React from "react";
+import React,{useState} from "react";
 
-function Form() {
+function Form () {
+    const [formInfo, setFormInfo] = useState({
+        name: '',
+        surname: '',
+        ID: '',
+        age: '',
+        place: '',
+        allergy:''
+    })
   return (
     <div>
       <form>
-        <input type="text" name="name" id="" placeholder="name" />
-        <input type="text" name="surname" id="" placeholder="surname" />
+        <input type="text" name="name" id="" placeholder="Name" />
+        <input type="text" name="Surname" id="" placeholder="surname" />
         <input type="number" name="ID" id="" placeholder="ID Number" />
         <input type="number" name="age" id="" placeholder="Age" />
         <input type="text" name="place" id="" placeholder="Place" />
         <textarea
           name=""
           id=""
-          cols="30"
+          cols="25"
           rows="10"
-          placeholder="allergy"
+          placeholder="Allergy"
         ></textarea>
         <button type="submit">Submit</button>
       </form>
