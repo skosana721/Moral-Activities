@@ -53,11 +53,12 @@
   margin-top: 1rem;
   letter-spacing: 0.4rem;
   padding: 0.15rem 0.25rem;
-  text-transform: capitalize;
+  text-transform: uppercase;
   border-radius: 8px;
   cursor: pointer;
   
 }
+
 
 .form-control {
   margin: 0.5rem 0;
