@@ -18,3 +18,50 @@
   color: white;
   margin-bottom: 3vw;
 }
+
+.form {
+  background: lightsteelblue;
+  max-width: 400px;
+  margin: 2rem auto;
+  margin-bottom: 4rem;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  text-align: center;
+
+}
+.form input {
+  background: white;
+  border-color: transparent;
+  border-radius: 5px;
+  padding: 0.25rem 0.5rem;
+}
+.form input:focus{
+  background-color: #89CFF0;
+  color: black;
+}
+.form textarea {
+   background: white;
+  border-color: transparent;
+  border-radius: 5px;
+  padding: 0.25rem 0.5rem;
+}
+.form button {
+  display: inline-block;
+  background: rgb(80, 67, 67);
+  color: white;
+  border-color: transparent;
+  margin-top: 1rem;
+  letter-spacing: 0.4rem;
+  padding: 0.15rem 0.25rem;
+  text-transform: capitalize;
+  border-radius: 8px;
+  cursor: pointer;
+  
+}
+
+.form-control {
+  margin: 0.5rem 0;
+  display: grid;
+  /* grid-template-columns: 100px 1fr; */
+  align-items: center;
+}
