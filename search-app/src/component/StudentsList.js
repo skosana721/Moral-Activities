@@ -1,12 +1,12 @@
-import React from 'react'
-import Students from './Students'
+import React from "react";
+import Students from "./Students";
+import { useSelector } from "react-redux";
 
-function List() {
-    return (
-        <div>
-            <Students/>
-        </div>
-    )
+function StudentsList() {
+  const form = useSelector((state) => state.form.formInfo);
+  return (
+    <div className="studentsList">{form.length === 0 ? <Students /> : []}</div>
+  );
 }
 
-export default List
+export default StudentsList;

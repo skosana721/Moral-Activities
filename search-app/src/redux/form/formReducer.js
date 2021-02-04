@@ -5,8 +5,9 @@ const initialState = {
 };
 export const formReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SAVE_INFO:
-      return {...state, formInfo: action.payload};
+      case SAVE_INFO:
+          
+      return {...state, formInfo: [...state.formInfo,action.payload]};
 
     default:
       return state;

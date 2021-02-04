@@ -1,28 +1,35 @@
 import React, { useState } from "react";
-import {useDispatch} from 'react-redux'
+import { useDispatch } from "react-redux";
 import { saveInfo } from "../redux/form/action";
 
 function Form() {
   const [formInfo, setFormInfo] = useState({
     name: "",
     surname: "",
-    ID: "",
+    id: "",
     age: "",
     place: "",
     allergy: "",
   });
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormInfo({ ...formInfo, [name]: value });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(saveInfo(formInfo))
-    console.log("info", formInfo);
+    dispatch(saveInfo(formInfo));
+    setFormInfo({
+      name: "",
+      surname: "",
+      id: "",
+      age: "",
+      place: "",
+      allergy: "",
+    });
   };
 
-  const { name, surname, ID, age, place, allergy } = formInfo;
+  const { name, surname, id, age, place, allergy } = formInfo;
   return (
     <div>
       <form onSubmit={handleSubmit} className="form">
@@ -30,7 +37,6 @@ function Form() {
           <input
             type="text"
             name="name"
-            id=""
             placeholder="Name"
             onChange={handleChange}
             value={name}
@@ -41,7 +47,6 @@ function Form() {
           <input
             type="text"
             name="surname"
-            id=""
             placeholder="surname"
             onChange={handleChange}
             value={surname}
@@ -51,11 +56,10 @@ function Form() {
         <div className="form-control">
           <input
             type="number"
-            name="ID"
-            id=""
+            name="id"
             placeholder="ID Number"
             onChange={handleChange}
-            value={ID}
+            value={id}
             required
           />
         </div>
@@ -63,7 +67,6 @@ function Form() {
           <input
             type="number"
             name="age"
-            id=""
             placeholder="Age"
             onChange={handleChange}
             value={age}
@@ -74,7 +77,6 @@ function Form() {
           <input
             type="text"
             name="place"
-            id=""
             placeholder="Place"
             onChange={handleChange}
             value={place}
@@ -84,10 +86,9 @@ function Form() {
         <div className="form-control">
           <textarea
             name="allergy"
-            id=""
-            cols="25"
+            cols="15"
             rows="10"
-            placeholder="Allergy"
+            placeholder="Food allergy's"
             onChange={handleChange}
             value={allergy}
             required
