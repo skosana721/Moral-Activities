@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { saveInfo } from "../redux/form/action";
+import { saveInfo } from "../redux/form/actions";
 
 function Form() {
   const [formInfo, setFormInfo] = useState({

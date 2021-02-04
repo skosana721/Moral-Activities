@@ -2,8 +2,11 @@ import "./App.css";
 import Form from "./component/Form";
 import Modal from "./component/Modal";
 import StudentsList from "./component/StudentsList";
+import { useSelector } from "react-redux";
 
 function App() {
+  const modal = useSelector((state) => state.modal);
+  console.log(modal);
   return (
     <>
       <div className="App">
