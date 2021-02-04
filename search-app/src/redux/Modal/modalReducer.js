@@ -1,4 +1,3 @@
-import React from "react";
 import { MODAL_CLOSE, MODAL_OPEN } from "./actionTypes";
 
 const initialState = {
@@ -11,7 +10,7 @@ export const modalReducer = (state = initialState, action) => {
       return {
         ...state,
         isModalOpen: true,
-        modalContent: "Submitted Successfully...",
+        modalContent: (state.modalContent = "Submitted Successfully..."),
       };
     case MODAL_CLOSE:
       return {
@@ -20,6 +19,6 @@ export const modalReducer = (state = initialState, action) => {
       };
 
     default:
-      return;
+      return state;
   }
 };

@@ -14,7 +14,7 @@ function App() {
           <h1>BootCamp</h1>
         </header>
       </div>
-      <Modal />
+      {modal.isModalOpen && <Modal />}
       <Form />
       <StudentsList />
     </>

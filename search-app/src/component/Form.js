@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { saveInfo } from "../redux/form/actions";
+import { modalOpen } from "../redux/Modal/actions";
 
 function Form() {
   const [formInfo, setFormInfo] = useState({
@@ -19,6 +20,7 @@ function Form() {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(saveInfo(formInfo));
+    dispatch(modalOpen());
     setFormInfo({
       name: "",
       surname: "",
