@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 
 function App() {
   const modal = useSelector((state) => state.modal);
-  console.log(modal);
   return (
     <>
       <div className="App">

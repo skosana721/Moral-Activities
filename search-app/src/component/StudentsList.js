@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 function StudentsList() {
   const form = useSelector((state) => state.form.formInfo);
   return (
-    <div className="studentsList">{form.length === 0 ? <Students /> : []}</div>
+    <div className="studentsList">{form.length !== 0 ? <Students /> : []}</div>
   );
 }
 
