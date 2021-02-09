@@ -32,8 +32,12 @@ export const Product = () => {
             <Paper variant="outlined" square>
               <h2>{product.brand}</h2>
               <h3>{product.model}</h3>
-              <Button variant="outlined" endIcon={<Add />}>
-                Add
+              <Button
+                variant="outlined"
+                endIcon={<Add />}
+                style={{ marginBottom: 10 }}
+              >
+                Add To Cart
               </Button>
             </Paper>
           </GridListTile>
