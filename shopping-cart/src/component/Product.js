@@ -5,6 +5,7 @@ import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
 import { Paper } from "@material-ui/core";
 import { Button } from "@material-ui/core";
+import Add from "@material-ui/icons/AddBox";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
   },
   gridList: {
-    width: 800,
+    width: 1000,
     height: 800,
   },
 }));
@@ -24,19 +25,16 @@ export const Product = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <GridList
-        cellHeight="auto"
-        className={classes.gridList}
-        cols={3}
-        spacing={4}
-      >
+    <div className={classes.root} style={{ marginTop: 15 }}>
+      <GridList cellHeight="auto" className={classes.gridList} cols={3}>
         {products.map((product) => (
           <GridListTile key={product.id}>
             <Paper variant="outlined" square>
               <h2>{product.brand}</h2>
               <h3>{product.model}</h3>
-              <Button variant="outlined">Add</Button>
+              <Button variant="outlined" endIcon={<Add />}>
+                Add
+              </Button>
             </Paper>
           </GridListTile>
         ))}
