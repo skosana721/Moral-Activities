@@ -1,5 +1,4 @@
 const initialState = {
-  profile: { name: " ", surname: "" },
   products: [
     { id: 1, img: "", brand: "Nike Air", model: "Jordan 6", price: "" },
     { id: 2, img: "", brand: "Adidas", model: "Yeezy 350 v2 ", price: "" },
