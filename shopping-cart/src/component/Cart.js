@@ -8,15 +8,17 @@ export const Cart = () => {
   const { cart, total } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getTotalAmount());
-  });
+    if (cart) {
+      dispatch(getTotalAmount());
+    }
+  }, [cart, dispatch]);
   return (
     <div>
       {cart.length !== 0 &&
         cart.map((item) => {
           return (
             <div key={item.id}>
-              <h1> {item.brand}</h1>;
+              <h1> {item.brand}</h1>
             </div>
           );
         })}

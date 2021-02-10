@@ -1,8 +1,8 @@
-import { ADD_TO_CART, CLEAR_CART } from "./actionTypes";
+import { ADD_TO_CART, CLEAR_CART, GET_TOTAL_AMOUNT } from "./actionTypes";
 
 const initialState = {
   cart: [],
-  total: "0",
+  total: 0,
 };
 export const cartReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -15,6 +15,16 @@ export const cartReducer = (state = initialState, action) => {
       return {
         ...state,
         cart: [],
+      };
+    case GET_TOTAL_AMOUNT:
+      let totalAmount = state.cart.reduce((cartTotal, cartItem) => {
+        const { price } = cartItem;
+        cartTotal += price;
+        return cartTotal;
+      }, 0);
+      return {
+        ...state,
+        total: totalAmount,
       };
     default:
       return state;
