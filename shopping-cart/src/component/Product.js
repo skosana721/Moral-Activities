@@ -25,7 +25,11 @@ export const Product = () => {
   const products = useSelector((state) => state.products.products);
   const dispatch = useDispatch();
   const classes = useStyles();
-  const cartProduct = products.filter((id) => products.id === id);
+  const cartProduct = (id) => {
+    let cart = products.filter((product) => product.id === id);
+
+    dispatch(addToCart(cart[0]));
+  };
   return (
     <div className={classes.root} style={{ marginTop: 15 }}>
       <GridList cellHeight="auto" className={classes.gridList} cols={3}>
@@ -35,7 +39,7 @@ export const Product = () => {
               <h2>{product.brand}</h2>
               <h3>{product.model}</h3>
               <Button
-                onclick={() => dispatch(addToCart())}
+                onClick={() => cartProduct(product.id)}
                 variant="outlined"
                 endIcon={<Add />}
                 style={{ marginBottom: 10 }}
