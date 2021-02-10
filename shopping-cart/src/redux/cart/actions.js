@@ -1,4 +1,4 @@
-import { ADD_TO_CART, CLEAR_CART } from "./actionTypes";
+import { ADD_TO_CART, CLEAR_CART, GET_TOTAL_AMOUNT } from "./actionTypes";
 
 export const addToCart = (data) => {
   return (dispatch) => {
@@ -11,5 +11,10 @@ export const addToCart = (data) => {
 export const clearCart = () => {
   return (dispatch) => {
     dispatch({ type: CLEAR_CART });
+  };
+};
+export const getTotalAmount = () => {
+  return (dispatch) => {
+    dispatch({ type: GET_TOTAL_AMOUNT });
   };
 };
