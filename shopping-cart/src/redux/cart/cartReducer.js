@@ -1,4 +1,4 @@
-import { ADD_TO_CART } from "./actionTypes";
+import { ADD_TO_CART, CLEAR_CART } from "./actionTypes";
 
 const initialState = {
   cart: [],
@@ -10,6 +10,11 @@ export const cartReducer = (state = initialState, action) => {
       return {
         ...state,
         cart: [...state.cart, action.payload],
+      };
+    case CLEAR_CART:
+      return {
+        ...state,
+        cart: [],
       };
     default:
       return state;
