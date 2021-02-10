@@ -11,10 +11,6 @@ function Students() {
   });
   const editMode = () => {
     setEdit(!edit);
-    let selectedItem = form.find((person) => {
-      console.log(person.id);
-    });
-    console.log(selectedItem);
 
     console.log("edit mode activated");
   };
