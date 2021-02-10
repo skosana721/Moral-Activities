@@ -1,4 +1,5 @@
 import "./App.css";
+import { Cart } from "./component/Cart";
 import { Product } from "./component/Product";
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <div className="App">
       <header className="App-header">Shopping Cart</header>
       <Product />
+      <Cart />
     </div>
   );
 }
