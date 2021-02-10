@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button } from "@material-ui/core";
 import { useSelector, useDispatch } from "react-redux";
 import ClearIcon from "@material-ui/icons/Clear";
-import { clearCart } from "../redux/cart/actions";
+import { clearCart, getTotalAmount } from "../redux/cart/actions";
 
 export const Cart = () => {
   const { cart, total } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
-
+  useEffect(() => {
+    dispatch(getTotalAmount());
+  });
   return (
     <div>
       {cart.length !== 0 &&
