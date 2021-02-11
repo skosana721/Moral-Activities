@@ -3,13 +3,25 @@ import { ADD_TO_CART, CLEAR_CART, GET_TOTAL_AMOUNT } from "./actionTypes";
 const initialState = {
   cart: [],
   total: 0,
+  amount: 0,
 };
 export const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TO_CART:
+      const newCart = [...state.cart, action.payload];
+      const filterArr = newCart.reduce((acc, curr) => {
+        const cartItem = acc.find((item) => item.id === curr.id);
+        if (!cartItem) {
+          return acc.concat([curr]);
+        } else {
+          return acc;
+        }
+      }, []);
+      console.log("newState", filterArr);
       return {
         ...state,
-        cart: [...state.cart, action.payload],
+        cart: filterArr,
+        amount: state.amount + 1,
       };
     case CLEAR_CART:
       return {
