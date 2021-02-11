@@ -18,7 +18,9 @@ export const Cart = () => {
         cart.map((item) => {
           return (
             <div key={item.id}>
-              <h1> {item.brand}</h1>
+              <h2> {item.brand}</h2>
+              <h3>{item.model}</h3>
+              <h4>R {item.price}</h4>
             </div>
           );
         })}
