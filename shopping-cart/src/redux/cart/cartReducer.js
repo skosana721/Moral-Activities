@@ -1,4 +1,9 @@
-import { ADD_TO_CART, CLEAR_CART, GET_TOTAL_AMOUNT } from "./actionTypes";
+import {
+  ADD_TO_CART,
+  CLEAR_CART,
+  GET_TOTAL_AMOUNT,
+  REMOVE_PRODUCT,
+} from "./actionTypes";
 
 const initialState = {
   cart: [],
@@ -17,7 +22,7 @@ export const cartReducer = (state = initialState, action) => {
           return acc;
         }
       }, []);
-      console.log("newState", filterArr);
+
       return {
         ...state,
         cart: filterArr,
@@ -37,6 +42,14 @@ export const cartReducer = (state = initialState, action) => {
       return {
         ...state,
         total: totalAmount,
+      };
+    case REMOVE_PRODUCT:
+      const removedItem = state.cart.filter(
+        (item) => item.id !== action.payload
+      );
+      return {
+        ...state,
+        cart: removedItem,
       };
     default:
       return state;
