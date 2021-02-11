@@ -4,6 +4,7 @@ import {
   GET_TOTAL_AMOUNT,
   REMOVE_PRODUCT,
   INCREASE_AMOUNT,
+  DECREASE_AMOUNT,
 } from "./actionTypes";
 
 export const addToCart = (data) => {
@@ -32,5 +33,10 @@ export const removeProduct = (id) => {
 export const increaseAmount = (id) => {
   return (dispatch) => {
     dispatch({ type: INCREASE_AMOUNT, payload: id });
+  };
+};
+export const decreaseAmount = (id, amount) => {
+  return (dispatch) => {
+    dispatch({ type: DECREASE_AMOUNT, payload: { id, amount } });
   };
 };
