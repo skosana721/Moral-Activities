@@ -27,7 +27,6 @@ export const Product = () => {
   const classes = useStyles();
   const cartProduct = (id) => {
     let cart = products.filter((product) => product.id === id);
-
     dispatch(addToCart(cart[0]));
   };
   return (
