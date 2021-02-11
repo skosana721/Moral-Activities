@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
   gridList: {
     width: 1000,
-    height: 800,
+    height: 900,
   },
 }));
 export const Product = () => {
@@ -38,6 +38,7 @@ export const Product = () => {
             <Paper variant="outlined" square>
               <h2>{product.brand}</h2>
               <h3>{product.model}</h3>
+              <h4>R {product.price}</h4>
               <Button
                 onClick={() => cartProduct(product.id)}
                 variant="outlined"
