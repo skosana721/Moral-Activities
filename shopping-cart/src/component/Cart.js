@@ -5,15 +5,17 @@ import ClearIcon from "@material-ui/icons/Clear";
 import { clearCart, getTotalAmount } from "../redux/cart/actions";
 
 export const Cart = () => {
-  const { cart, total } = useSelector((state) => state.cart);
+  const { cart, total, amount } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   useEffect(() => {
     if (cart) {
       dispatch(getTotalAmount());
     }
   }, [cart, dispatch]);
+
   return (
     <div>
+      {amount}
       {cart.length !== 0 &&
         cart.map((item) => {
           return (
@@ -24,7 +26,6 @@ export const Cart = () => {
             </div>
           );
         })}
-
       <h2>Total: R {total}</h2>
       <Button
         onClick={() => dispatch(clearCart())}
