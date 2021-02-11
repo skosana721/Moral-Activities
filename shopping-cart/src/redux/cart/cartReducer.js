@@ -27,7 +27,6 @@ export const cartReducer = (state = initialState, action) => {
       return {
         ...state,
         cart: filterArr,
-        amount: state.amount + 1,
       };
     case CLEAR_CART:
       return {
