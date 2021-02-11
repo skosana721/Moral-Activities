@@ -23,8 +23,8 @@ export const getTotalAmount = () => {
     dispatch({ type: GET_TOTAL_AMOUNT });
   };
 };
-export const removeProduct = () => {
+export const removeProduct = (id) => {
   return (dispatch) => {
-    dispatch({ type: REMOVE_PRODUCT });
+    dispatch({ type: REMOVE_PRODUCT, payload: id });
   };
 };
