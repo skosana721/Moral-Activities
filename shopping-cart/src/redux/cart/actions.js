@@ -1,4 +1,9 @@
-import { ADD_TO_CART, CLEAR_CART, GET_TOTAL_AMOUNT } from "./actionTypes";
+import {
+  ADD_TO_CART,
+  CLEAR_CART,
+  GET_TOTAL_AMOUNT,
+  REMOVE_PRODUCT,
+} from "./actionTypes";
 
 export const addToCart = (data) => {
   return (dispatch) => {
@@ -16,5 +21,10 @@ export const clearCart = () => {
 export const getTotalAmount = () => {
   return (dispatch) => {
     dispatch({ type: GET_TOTAL_AMOUNT });
+  };
+};
+export const removeProduct = () => {
+  return (dispatch) => {
+    dispatch({ type: REMOVE_PRODUCT });
   };
 };
