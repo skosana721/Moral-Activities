@@ -1,6 +1,7 @@
 import {
   ADD_TO_CART,
   CLEAR_CART,
+  DECREASE_AMOUNT,
   GET_TOTAL_AMOUNT,
   INCREASE_AMOUNT,
   REMOVE_PRODUCT,
@@ -62,6 +63,23 @@ export const cartReducer = (state = initialState, action) => {
       return {
         ...state,
         cart: tempCart,
+      };
+    case DECREASE_AMOUNT:
+      console.log("action.payload", action.payload.amount);
+      let decrease = [];
+      if (action.payload.amount === 0) {
+        decrease = state.cart.filter((item) => item.id !== action.payload.id);
+      } else {
+        decrease = state.cart.map((item) => {
+          if (item.id === action.payload.id) {
+            item = { ...item, amount: item.amount - 1 };
+          }
+          return item;
+        });
+      }
+      return {
+        ...state,
+        cart: decrease,
       };
     default:
       return state;
