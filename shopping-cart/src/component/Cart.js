@@ -7,9 +7,11 @@ import {
   getTotalAmount,
   removeProduct,
   increaseAmount,
+  decreaseAmount,
 } from "../redux/cart/actions";
 import RemoveItem from "@material-ui/icons/RemoveShoppingCart";
-import AddIcon from "@material-ui/icons/ExpandLessSharp";
+import Increase from "@material-ui/icons/ExpandLessSharp";
+import Decrease from "@material-ui/icons/ExpandMoreSharp";
 
 export const Cart = () => {
   const { cart, total, amount } = useSelector((state) => state.cart);
@@ -28,9 +30,10 @@ export const Cart = () => {
           const { id, brand, model, price, amount } = item;
           return (
             <div key={id}>
-              {amount}
               <h2> {brand}</h2>
-              <AddIcon onClick={() => dispatch(increaseAmount(id))} />
+              <Increase onClick={() => dispatch(increaseAmount(id))} />
+              {amount}
+              <Decrease onClick={() => dispatch(decreaseAmount(id, amount))} />
               <h3>{model}</h3>
               <h4>R {price}</h4>
               <RemoveItem onClick={() => dispatch(removeProduct(id))} />
