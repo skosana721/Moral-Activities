@@ -2,7 +2,12 @@ import React, { useEffect } from "react";
 import { Button } from "@material-ui/core";
 import { useSelector, useDispatch } from "react-redux";
 import ClearIcon from "@material-ui/icons/Clear";
-import { clearCart, getTotalAmount } from "../redux/cart/actions";
+import {
+  clearCart,
+  getTotalAmount,
+  removeProduct,
+} from "../redux/cart/actions";
+import RemoveItem from "@material-ui/icons/RemoveShoppingCart";
 
 export const Cart = () => {
   const { cart, total, amount } = useSelector((state) => state.cart);
@@ -18,11 +23,13 @@ export const Cart = () => {
       {amount}
       {cart.length !== 0 &&
         cart.map((item) => {
+          const { id, brand, model, price } = item;
           return (
-            <div key={item.id}>
-              <h2> {item.brand}</h2>
-              <h3>{item.model}</h3>
-              <h4>R {item.price}</h4>
+            <div key={id}>
+              <h2> {brand}</h2>
+              <h3>{model}</h3>
+              <h4>R {price}</h4>
+              <RemoveItem onClick={() => dispatch(removeProduct(id))} />
             </div>
           );
         })}
