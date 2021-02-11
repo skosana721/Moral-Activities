@@ -2,6 +2,7 @@ import {
   ADD_TO_CART,
   CLEAR_CART,
   GET_TOTAL_AMOUNT,
+  INCREASE_AMOUNT,
   REMOVE_PRODUCT,
 } from "./actionTypes";
 
@@ -50,6 +51,18 @@ export const cartReducer = (state = initialState, action) => {
       return {
         ...state,
         cart: removedItem,
+      };
+    case INCREASE_AMOUNT:
+      const tempCart = state.cart.map((item) => {
+        if (item.id === action.payload) {
+          item = { ...item, amount: item.amount + 1 };
+        }
+        return item;
+      });
+
+      return {
+        ...state,
+        cart: tempCart,
       };
     default:
       return state;
