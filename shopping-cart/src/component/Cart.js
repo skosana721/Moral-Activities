@@ -47,7 +47,7 @@ export const Cart = () => {
         color="secondary"
         endIcon={<ClearIcon />}
       >
-        Clear
+        Checkout
       </Button>
     </div>
   );
