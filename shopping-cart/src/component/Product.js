@@ -5,6 +5,7 @@ import { GridList, GridListTile, Paper, Button } from "@material-ui/core";
 import Add from "@material-ui/icons/AddBox";
 import { addToCart } from "../redux/cart/actions";
 import ViewCart from "@material-ui/icons/ShoppingCartTwoTone";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -50,9 +51,11 @@ export const Product = () => {
           ))}
         </GridList>
       </div>
-      <Button variant="contained" endIcon={<ViewCart />} color="primary">
-        View Cart
-      </Button>
+      <Link to="/cart">
+        <Button variant="contained" endIcon={<ViewCart />} color="primary">
+          View Cart
+        </Button>
+      </Link>
     </div>
   );
 };
