@@ -1,12 +1,10 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
-import GridList from "@material-ui/core/GridList";
-import GridListTile from "@material-ui/core/GridListTile";
-import { Paper } from "@material-ui/core";
-import { Button } from "@material-ui/core";
+import { GridList, GridListTile, Paper, Button } from "@material-ui/core";
 import Add from "@material-ui/icons/AddBox";
 import { addToCart } from "../redux/cart/actions";
+import ViewCart from "@material-ui/icons/ShoppingCartTwoTone";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,26 +28,31 @@ export const Product = () => {
     dispatch(addToCart(cart[0]));
   };
   return (
-    <div className={classes.root} style={{ marginTop: 15 }}>
-      <GridList cellHeight="auto" className={classes.gridList} cols={3}>
-        {products.map((product) => (
-          <GridListTile key={product.id}>
-            <Paper variant="outlined" square>
-              <h2>{product.brand}</h2>
-              <h3>{product.model}</h3>
-              <h4>R {product.price}</h4>
-              <Button
-                onClick={() => cartProduct(product.id)}
-                variant="outlined"
-                endIcon={<Add />}
-                style={{ marginBottom: 10 }}
-              >
-                Add To Cart
-              </Button>
-            </Paper>
-          </GridListTile>
-        ))}
-      </GridList>
+    <div>
+      <div className={classes.root} style={{ marginTop: 15 }}>
+        <GridList cellHeight="auto" className={classes.gridList} cols={3}>
+          {products.map((product) => (
+            <GridListTile key={product.id}>
+              <Paper variant="outlined" square>
+                <h2>{product.brand}</h2>
+                <h3>{product.model}</h3>
+                <h4>R {product.price}</h4>
+                <Button
+                  onClick={() => cartProduct(product.id)}
+                  variant="outlined"
+                  endIcon={<Add />}
+                  style={{ marginBottom: 10 }}
+                >
+                  Add To Cart
+                </Button>
+              </Paper>
+            </GridListTile>
+          ))}
+        </GridList>
+      </div>
+      <Button variant="contained" endIcon={<ViewCart />} color="primary">
+        View Cart
+      </Button>
     </div>
   );
 };
