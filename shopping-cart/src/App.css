@@ -12,3 +12,15 @@
   font-size: 2rem;
   color: white;
 }
+.cartList {
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  grid-template-rows: repeat(2, 2fr);
+}
+.cart .item {
+  border: 2px solid black;
+}
+
+.cart button {
+  margin: 1rem;
+}

@@ -24,29 +24,34 @@ export const Cart = () => {
   }, [cart, dispatch]);
 
   return (
-    <div>
+    <div className="cart">
       <Link to="/">
         <Button variant="contained" color="primary" endIcon={<HomeIcon />}>
           Return Home
         </Button>
       </Link>
-      {amount}
-      {cart.length !== 0 &&
-        cart.map((item) => {
-          const { id, brand, model, price, amount } = item;
-          return (
-            <div key={id}>
-              <h2> {brand}</h2>
-              <Increase onClick={() => dispatch(increaseAmount(id))} />
-              {amount}
-              <Decrease onClick={() => dispatch(decreaseAmount(id, amount))} />
-              <h3>{model}</h3>
-              <h4>R {price}</h4>
-              <RemoveItem onClick={() => dispatch(removeProduct(id))} />
-            </div>
-          );
-        })}
+      <h3>{amount}</h3>
+      <div className="cartList">
+        {cart.length !== 0 &&
+          cart.map((item) => {
+            const { id, brand, model, price, amount } = item;
+            return (
+              <div key={id}>
+                <h2> {brand}</h2>
+                <Increase onClick={() => dispatch(increaseAmount(id))} />
+                {amount}
+                <Decrease
+                  onClick={() => dispatch(decreaseAmount(id, amount))}
+                />
+                <h3>{model}</h3>
+                <h4>R {price}</h4>
+                <RemoveItem onClick={() => dispatch(removeProduct(id))} />
+              </div>
+            );
+          })}
+      </div>
       <h2>Total: R {total}</h2>
+
       <Button
         onClick={() => dispatch(clearCart())}
         variant="contained"
