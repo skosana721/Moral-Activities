@@ -13,6 +13,7 @@ import RemoveItem from "@material-ui/icons/RemoveShoppingCart";
 import Increase from "@material-ui/icons/ExpandLessSharp";
 import Decrease from "@material-ui/icons/ExpandMoreSharp";
 import { Link } from "react-router-dom";
+import HomeIcon from "@material-ui/icons/Home";
 export const Cart = () => {
   const { cart, total, amount } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ export const Cart = () => {
   return (
     <div>
       <Link to="/">
-        <Button variant="contained" color="primary">
+        <Button variant="contained" color="primary" endIcon={<HomeIcon />}>
           Return Home
         </Button>
       </Link>
