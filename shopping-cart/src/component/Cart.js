@@ -12,7 +12,7 @@ import {
 import RemoveItem from "@material-ui/icons/RemoveShoppingCart";
 import Increase from "@material-ui/icons/ExpandLessSharp";
 import Decrease from "@material-ui/icons/ExpandMoreSharp";
-import { Grid, Image } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 export const Cart = () => {
   const { cart, total, amount } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
@@ -24,6 +24,11 @@ export const Cart = () => {
 
   return (
     <div>
+      <Link to="/">
+        <Button variant="contained" color="primary">
+          Return Home
+        </Button>
+      </Link>
       {amount}
       {cart.length !== 0 &&
         cart.map((item) => {
