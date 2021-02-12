@@ -12,7 +12,7 @@ import {
 import RemoveItem from "@material-ui/icons/RemoveShoppingCart";
 import Increase from "@material-ui/icons/ExpandLessSharp";
 import Decrease from "@material-ui/icons/ExpandMoreSharp";
-
+import { Grid, Image } from "semantic-ui-react";
 export const Cart = () => {
   const { cart, total, amount } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
