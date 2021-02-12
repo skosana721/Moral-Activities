@@ -10,7 +10,7 @@ import {
 const initialState = {
   cart: [],
   total: 0,
-  amount: 0,
+  amount: 1,
 };
 export const cartReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -35,14 +35,20 @@ export const cartReducer = (state = initialState, action) => {
         cart: [],
       };
     case GET_TOTAL_AMOUNT:
-      let totalAmount = state.cart.reduce((cartTotal, cartItem) => {
-        const { price } = cartItem;
-        cartTotal += price;
-        return cartTotal;
-      }, 0);
+      let { total, amount } = state.cart.reduce(
+        (cartTotal, cartItem) => {
+          const { price, amount } = cartItem;
+          const itemTotal = price * amount;
+          cartTotal.total += itemTotal;
+          cartTotal.amount += amount;
+          return cartTotal;
+        },
+        { total: 0, amount: 0 }
+      );
       return {
         ...state,
-        total: totalAmount,
+        total,
+        amount,
       };
     case REMOVE_PRODUCT:
       const removedItem = state.cart.filter(
@@ -65,9 +71,8 @@ export const cartReducer = (state = initialState, action) => {
         cart: tempCart,
       };
     case DECREASE_AMOUNT:
-      console.log("action.payload", action.payload.amount);
       let decrease = [];
-      if (action.payload.amount === 0) {
+      if (action.payload.amount === 1) {
         decrease = state.cart.filter((item) => item.id !== action.payload.id);
       } else {
         decrease = state.cart.map((item) => {
