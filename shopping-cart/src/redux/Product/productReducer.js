@@ -6,7 +6,7 @@ const initialState = {
       brand: "Nike Air",
       model: "Jordan 6",
       price: 3200,
-      amount: 0,
+      amount: 1,
     },
     {
       id: 2,
@@ -14,7 +14,7 @@ const initialState = {
       brand: "Adidas",
       model: "Yeezy 350 v2 ",
       price: 3500,
-      amount: 0,
+      amount: 1,
     },
     {
       id: 3,
@@ -22,7 +22,7 @@ const initialState = {
       brand: "Nike",
       model: "LeBron 15",
       price: 2800,
-      amount: 0,
+      amount: 1,
     },
     {
       id: 4,
@@ -30,7 +30,7 @@ const initialState = {
       brand: "PUMA x Les Benjamins",
       model: "Storm",
       price: 2000,
-      amount: 0,
+      amount: 1,
     },
     {
       id: 5,
@@ -38,7 +38,7 @@ const initialState = {
       brand: "NEW BALANCE X KITH",
       model: "1300 Mauve Sole",
       price: 2500,
-      amount: 0,
+      amount: 1,
     },
     {
       id: 6,
@@ -46,7 +46,7 @@ const initialState = {
       brand: "Nike Air",
       model: "Jordan 14",
       price: 3500,
-      amount: 0,
+      amount: 1,
     },
     {
       id: 7,
@@ -54,7 +54,7 @@ const initialState = {
       brand: "Adidas",
       model: "UltraBoot 21",
       price: 3000,
-      amount: 0,
+      amount: 1,
     },
     {
       id: 8,
@@ -62,7 +62,7 @@ const initialState = {
       brand: "Adidas",
       model: "EQT BASK ADV ",
       price: 1899,
-      amount: 0,
+      amount: 1,
     },
     {
       id: 9,
@@ -70,7 +70,7 @@ const initialState = {
       brand: "Puma",
       model: "Uproar Palace Guard",
       price: 2199,
-      amount: 0,
+      amount: 1,
     },
     {
       id: 10,
@@ -78,7 +78,7 @@ const initialState = {
       brand: "NEW BALANCE X BODEGA",
       model: "997S 'Better Days'",
       price: 2299,
-      amount: 0,
+      amount: 1,
     },
   ],
 };
