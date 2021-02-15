@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { getTotal } from "../redux/lion/actionTypes";
 
 function Lions() {
+  const dispatch = useDispatch();
   const lion = useSelector((state) => state.lion);
+  useEffect(() => {
+    dispatch(getTotal());
+  }, [dispatch]);
 
   return (
     <div>
