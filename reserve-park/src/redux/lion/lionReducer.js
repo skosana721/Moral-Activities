@@ -1,5 +1,3 @@
-import React from "react";
-
 const initialState = {
   maleLions: 8,
   femaleLions: 18,
