@@ -1,5 +1,6 @@
 import "./App.css";
 import Lions from "./component/Lions";
+import Rhinos from "./component/Rhinos";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
         <h1>Reserver Park</h1>
       </header>
       <Lions />
+      <Rhinos />
     </div>
   );
 }
