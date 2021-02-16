@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   decrementFemaleRhinos,
   decrementMaleRhinos,
+  getRhinoTotal,
 } from "../redux/rhino/actions";
 
 function Rhinos() {
   const rhino = useSelector((state) => state.rhino);
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getRhinoTotal());
+  }, [rhino.maleRhinos, rhino.femaleRhinos, dispatch]);
   const decrementMaleNumber = () => {
     if (rhino.maleRhinos > 0) {
       dispatch(decrementMaleRhinos());
