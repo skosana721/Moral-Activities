@@ -8,8 +8,10 @@ function App() {
       <header className="App-header">
         <h1>Reserver Park</h1>
       </header>
-      <Lions />
-      <Rhinos />
+      <div className="container">
+        <Lions />
+        <Rhinos />
+      </div>
     </div>
   );
 }
