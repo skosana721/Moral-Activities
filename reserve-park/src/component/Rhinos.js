@@ -1,6 +1,9 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { decrementMaleRhinos } from "../redux/rhino/actions";
+import {
+  decrementFemaleRhinos,
+  decrementMaleRhinos,
+} from "../redux/rhino/actions";
 
 function Rhinos() {
   const rhino = useSelector((state) => state.rhino);
@@ -10,12 +13,18 @@ function Rhinos() {
       dispatch(decrementMaleRhinos());
     }
   };
+  const decrementFemaleNumber = () => {
+    if (rhino.femaleRhinos > 0) {
+      dispatch(decrementFemaleRhinos());
+    }
+  };
   return (
     <div>
       <h2>Rhinos</h2>
       <h3>Male Rhinos: {rhino.maleRhinos}</h3>
       <button onClick={decrementMaleNumber}>dead</button>
       <h3>Female Rhinos: {rhino.femaleRhinos}</h3>
+      <button onClick={decrementFemaleNumber}>dead</button>
       <p>Total Number Of Rhinos reserver: {rhino.totalRhinos}</p>
     </div>
   );
