@@ -5,7 +5,7 @@ import {
   reduceFemaleNumber,
   reduceMaleNumber,
 } from "../redux/lion/actions";
-
+import Img from "../img/pexels-tina-nord-797582.jpg";
 function Lions() {
   const dispatch = useDispatch();
   const lion = useSelector((state) => state.lion);
@@ -25,6 +25,7 @@ function Lions() {
   return (
     <div>
       <h2>Lions</h2>
+      <img src={Img} alt="" />
       <h3>Male Lions: {lion.maleLions}</h3>
       <button onClick={reduceMaleNum}>-</button>
       <h3>Female Lions: {lion.femaleLions}</h3>
