@@ -1,7 +1,7 @@
 const initialState = {
   maleRhinos: 11,
   femaleRhinos: 23,
-  totalRhino: 34,
+  totalRhino: 0,
 };
 
 export const rhinoReducer = (state = initialState, action) => {
