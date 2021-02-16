@@ -1,4 +1,8 @@
-import { DECREMENT_FEMALE_RHINOS, DECREMENT_MALE_RHINOS } from "./actionTypes";
+import {
+  DECREMENT_FEMALE_RHINOS,
+  DECREMENT_MALE_RHINOS,
+  GET_RHINO_TOTAL,
+} from "./actionTypes";
 
 export const decrementMaleRhinos = () => {
   return (dispatch) => {
@@ -8,5 +12,10 @@ export const decrementMaleRhinos = () => {
 export const decrementFemaleRhinos = () => {
   return (dispatch) => {
     dispatch({ type: DECREMENT_FEMALE_RHINOS });
+  };
+};
+export const getRhinoTotal = () => {
+  return (dispatch) => {
+    dispatch({ type: GET_RHINO_TOTAL });
   };
 };
