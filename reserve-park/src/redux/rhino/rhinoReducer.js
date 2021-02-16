@@ -1,4 +1,8 @@
-import { DECREMENT_FEMALE_RHINOS, DECREMENT_MALE_RHINOS } from "./actionTypes";
+import {
+  DECREMENT_FEMALE_RHINOS,
+  DECREMENT_MALE_RHINOS,
+  GET_RHINO_TOTAL,
+} from "./actionTypes";
 
 const initialState = {
   maleRhinos: 11,
@@ -17,6 +21,12 @@ export const rhinoReducer = (state = initialState, action) => {
       return {
         ...state,
         femaleRhinos: state.femaleRhinos - 1,
+      };
+    case GET_RHINO_TOTAL:
+      let total = state.femaleRhinos + state.maleRhinos;
+      return {
+        ...state,
+        totalRhinos: total,
       };
     default:
       return state;
