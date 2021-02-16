@@ -5,6 +5,7 @@ import {
   decrementMaleRhinos,
   getRhinoTotal,
 } from "../redux/rhino/actions";
+import rhinoImg from "../img/pexels-jo-kassis-5461808.jpg";
 
 function Rhinos() {
   const rhino = useSelector((state) => state.rhino);
@@ -23,8 +24,9 @@ function Rhinos() {
     }
   };
   return (
-    <div>
+    <div className="rhino-section">
       <h2>Rhinos</h2>
+      <img src={rhinoImg} alt="" />
       <h3>Male Rhinos: {rhino.maleRhinos}</h3>
       <button onClick={decrementMaleNumber}>dead</button>
       <h3>Female Rhinos: {rhino.femaleRhinos}</h3>
