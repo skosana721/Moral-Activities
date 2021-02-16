@@ -1,4 +1,4 @@
-import { DECREMENT_MALE_RHINOS } from "./actionTypes";
+import { DECREMENT_FEMALE_RHINOS, DECREMENT_MALE_RHINOS } from "./actionTypes";
 
 const initialState = {
   maleRhinos: 11,
@@ -12,6 +12,11 @@ export const rhinoReducer = (state = initialState, action) => {
       return {
         ...state,
         maleRhinos: state.maleRhinos - 1,
+      };
+    case DECREMENT_FEMALE_RHINOS:
+      return {
+        ...state,
+        femaleRhinos: state.femaleRhinos - 1,
       };
     default:
       return state;
