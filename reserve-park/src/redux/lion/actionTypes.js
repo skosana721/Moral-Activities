@@ -1,1 +1,2 @@
 export const GET_TOTAL = "GET_TOTAL";
+export const REDUCE_MALE_NUMBER = "REDUCE_MALE_NUMBER";
