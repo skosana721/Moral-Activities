@@ -2,8 +2,8 @@ import {
   DECREMENT_FEMALE_RHINOS,
   DECREMENT_MALE_RHINOS,
   GET_RHINO_TOTAL,
-  SAVE_FEMALE_TOTAL,
-  SAVE_MALE_TOTAL,
+  SAVE_FEMALE_RHINO_TOTAL,
+  SAVE_MALE_RHINO_TOTAL,
 } from "./actionTypes";
 
 export const decrementMaleRhinos = () => {
@@ -21,13 +21,13 @@ export const getRhinoTotal = () => {
     dispatch({ type: GET_RHINO_TOTAL });
   };
 };
-export const saveMaleTotal = (num) => {
+export const saveMaleRhinoTotal = (num) => {
   return (dispatch) => {
-    dispatch({ type: SAVE_MALE_TOTAL, payload: num });
+    dispatch({ type: SAVE_MALE_RHINO_TOTAL, payload: num });
   };
 };
-export const saveFemaleTotal = (num) => {
+export const saveFemaleRhinoTotal = (num) => {
   return (dispatch) => {
-    dispatch({ type: SAVE_FEMALE_TOTAL, payload: num });
+    dispatch({ type: SAVE_FEMALE_RHINO_TOTAL, payload: num });
   };
 };
