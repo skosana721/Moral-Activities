@@ -36,7 +36,7 @@ export const rhinoReducer = (state = initialState, action) => {
       };
     case GET_RHINO_TOTAL:
       let total = state.femaleRhinos + state.maleRhinos;
-      console.log(total);
+
       return {
         ...state,
         totalRhinos: total,
