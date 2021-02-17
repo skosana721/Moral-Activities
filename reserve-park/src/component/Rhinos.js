@@ -25,11 +25,17 @@ function Rhinos() {
       dispatch(decrementFemaleRhinos());
     }
   };
+  const addMaleNumber = (e) => {
+    e.preventDefault(0);
+  };
+  const addFemaleNumber = (e) => {
+    e.preventDefault();
+  };
   return (
     <div className="rhino-section">
       <h2>Rhinos</h2>
       <img src={rhinoImg} alt="" />
-      <form>
+      <form onSubmit={addMaleNumber}>
         <input
           type="number"
           name="male"
@@ -42,7 +48,7 @@ function Rhinos() {
         <h3>Male Rhinos: {rhino.maleRhinos}</h3>
         <button onClick={decrementMaleNumber}>dead</button>
       </div>
-      <form>
+      <form onSubmit={addFemaleNumber}>
         <input
           type="number"
           name="female"
