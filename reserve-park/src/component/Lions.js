@@ -8,6 +8,7 @@ import {
   saveMaleTotal,
 } from "../redux/lion/actions";
 import Img from "../img/pexels-tina-nord-797582.jpg";
+
 function Lions() {
   const dispatch = useDispatch();
   const lion = useSelector((state) => state.lion);
