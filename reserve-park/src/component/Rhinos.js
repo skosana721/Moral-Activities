@@ -27,10 +27,26 @@ function Rhinos() {
     <div className="rhino-section">
       <h2>Rhinos</h2>
       <img src={rhinoImg} alt="" />
+      <form>
+        <input
+          type="number"
+          name="male"
+          placeholder="Enter the Number of male Rhinos"
+        />
+        <button type="submit">Add</button>
+      </form>
       <div className="male">
         <h3>Male Rhinos: {rhino.maleRhinos}</h3>
         <button onClick={decrementMaleNumber}>dead</button>
       </div>
+      <form>
+        <input
+          type="number"
+          name="male"
+          placeholder="Enter the Number of female Rhinos"
+        />
+        <button type="submit">Add</button>
+      </form>
       <div className="female">
         <h3>Female Rhinos: {rhino.femaleRhinos}</h3>
         <button onClick={decrementFemaleNumber}>dead</button>
