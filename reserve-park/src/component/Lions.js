@@ -25,29 +25,41 @@ function Lions() {
       dispatch(reduceFemaleNumber());
     }
   };
+  const addMaleNumber = (e) => {
+    e.preventDefault(0);
+    setMaleNumber();
+    console.log(maleNumber);
+  };
+  const addFemaleNumber = (e) => {
+    e.preventDefault();
+    setFemaleNumber("");
+    console.log(femaleNumber);
+  };
   return (
     <div className="lion-section">
       <h2>Lions</h2>
       <img src={Img} alt="" />
-      <form>
+      <form onSubmit={addMaleNumber}>
         <input
           type="number"
           name="male"
           onChange={(e) => setMaleNumber(e.target.value)}
           placeholder="Enter the Number of male Lions"
         />
+        <button type="submit">Add</button>
       </form>
       <div className="male">
         <h3>Male Lions: {lion.maleLions}</h3>
         <button onClick={reduceMaleNum}>dead</button>
       </div>
-      <form>
+      <form onSubmit={addFemaleNumber}>
         <input
           type="number"
           name="female"
           placeholder="Enter the number of female Lions"
           onChange={(e) => setFemaleNumber(e.target.value)}
         />
+        <button type="submit">Add</button>
       </form>
 
       <div className="female">
