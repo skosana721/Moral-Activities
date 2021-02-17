@@ -2,6 +2,7 @@ import {
   GET_TOTAL,
   REDUCE_FEMALE_NUMBER,
   REDUCE_MALE_NUMBER,
+  SAVE_MALE_TOTAL,
 } from "./actionTypes";
 
 export const getTotal = () => {
@@ -17,5 +18,10 @@ export const reduceMaleNumber = () => {
 export const reduceFemaleNumber = () => {
   return (dispatch) => {
     dispatch({ type: REDUCE_FEMALE_NUMBER });
+  };
+};
+export const saveMaleTotal = (num) => {
+  return (dispatch) => {
+    dispatch({ type: SAVE_MALE_TOTAL, payload: num });
   };
 };
