@@ -2,6 +2,7 @@ import {
   GET_TOTAL,
   REDUCE_FEMALE_NUMBER,
   REDUCE_MALE_NUMBER,
+  SAVE_FEMALE_TOTAL,
   SAVE_MALE_TOTAL,
 } from "./actionTypes";
 
@@ -17,6 +18,11 @@ export const lionReducer = (state = initialState, action) => {
       return {
         ...state,
         maleLions: action.payload,
+      };
+    case SAVE_FEMALE_TOTAL:
+      return {
+        ...state,
+        femaleLions: action.payload,
       };
     case REDUCE_MALE_NUMBER:
       return {
