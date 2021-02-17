@@ -14,11 +14,11 @@ import rhinoImg from "../img/pexels-jo-kassis-5461808.jpg";
 function Rhinos() {
   const rhino = useSelector((state) => state.rhino);
   const dispatch = useDispatch();
-  const [maleNumber, setMaleNumber] = useState(0);
-  const [femaleNumber, setFemaleNumber] = useState(0);
+  const [maleNumber, setMaleNumber] = useState("");
+  const [femaleNumber, setFemaleNumber] = useState("");
   useEffect(() => {
     dispatch(getRhinoTotal());
-  }, [dispatch]);
+  }, [rhino.maleRhinos, rhino.femaleRhinos, dispatch]);
   const decrementMaleNumber = () => {
     if (rhino.maleRhinos > 0) {
       dispatch(decrementMaleRhinos());
@@ -30,11 +30,13 @@ function Rhinos() {
     }
   };
   const addMaleNumber = (e) => {
-    e.preventDefault(0);
+    e.preventDefault();
     dispatch(saveMaleRhinoTotal(maleNumber));
+    setMaleNumber("");
   };
   const addFemaleNumber = (e) => {
     e.preventDefault();
+    setFemaleNumber("");
     dispatch(saveFemaleRhinoTotal(femaleNumber));
   };
   return (

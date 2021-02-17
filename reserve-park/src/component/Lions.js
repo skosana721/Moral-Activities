@@ -16,7 +16,7 @@ function Lions() {
   const [femaleNumber, setFemaleNumber] = useState(0);
   useEffect(() => {
     dispatch(getTotal());
-  }, [dispatch]);
+  }, [lion.maleLions, lion.femaleLions, dispatch]);
   const reduceMaleNum = () => {
     if (lion.maleLions > 0) {
       dispatch(reduceMaleNumber());
