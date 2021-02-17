@@ -4,6 +4,7 @@ import {
   getTotal,
   reduceFemaleNumber,
   reduceMaleNumber,
+  saveMaleTotal,
 } from "../redux/lion/actions";
 import Img from "../img/pexels-tina-nord-797582.jpg";
 function Lions() {
@@ -27,8 +28,7 @@ function Lions() {
   };
   const addMaleNumber = (e) => {
     e.preventDefault(0);
-    setMaleNumber();
-    console.log(maleNumber);
+    dispatch(saveMaleTotal(maleNumber));
   };
   const addFemaleNumber = (e) => {
     e.preventDefault();
