@@ -4,6 +4,10 @@ import {
   decrementFemaleRhinos,
   decrementMaleRhinos,
   getRhinoTotal,
+  saveFemaleRhinoTotal,
+  saveFemaleTotal,
+  saveMaleRhinoTotal,
+  saveMaleTotal,
 } from "../redux/rhino/actions";
 import rhinoImg from "../img/pexels-jo-kassis-5461808.jpg";
 
@@ -27,9 +31,11 @@ function Rhinos() {
   };
   const addMaleNumber = (e) => {
     e.preventDefault(0);
+    dispatch(saveMaleRhinoTotal(maleNumber));
   };
   const addFemaleNumber = (e) => {
     e.preventDefault();
+    dispatch(saveFemaleRhinoTotal(femaleNumber));
   };
   return (
     <div className="rhino-section">
