@@ -12,8 +12,8 @@ function Lions() {
   const dispatch = useDispatch();
   const lion = useSelector((state) => state.lion);
 
-  const [maleNumber, setMaleNumber] = useState(0);
-  const [femaleNumber, setFemaleNumber] = useState(0);
+  const [maleNumber, setMaleNumber] = useState("");
+  const [femaleNumber, setFemaleNumber] = useState("");
   useEffect(() => {
     dispatch(getTotal());
   }, [lion.maleLions, lion.femaleLions, dispatch]);
@@ -28,12 +28,15 @@ function Lions() {
     }
   };
   const addMaleNumber = (e) => {
-    e.preventDefault(0);
+    e.preventDefault();
+
     dispatch(saveMaleTotal(maleNumber));
+    setMaleNumber("");
   };
   const addFemaleNumber = (e) => {
     e.preventDefault();
     dispatch(saveFemaleTotal(femaleNumber));
+    setFemaleNumber("");
   };
   return (
     <div className="lion-section">
