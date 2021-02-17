@@ -5,8 +5,8 @@ import {
 } from "./actionTypes";
 
 const initialState = {
-  maleRhinos: 11,
-  femaleRhinos: 23,
+  maleRhinos: 0,
+  femaleRhinos: 0,
   totalRhinos: 0,
 };
 
