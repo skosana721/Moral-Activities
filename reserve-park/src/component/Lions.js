@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   getTotal,
@@ -9,6 +9,9 @@ import Img from "../img/pexels-tina-nord-797582.jpg";
 function Lions() {
   const dispatch = useDispatch();
   const lion = useSelector((state) => state.lion);
+
+  const [maleNumber, setMaleNumber] = useState(0);
+  const [femaleNumber, setFemaleNumber] = useState(0);
   useEffect(() => {
     dispatch(getTotal());
   }, [dispatch]);
@@ -30,10 +33,10 @@ function Lions() {
         <input
           type="number"
           name="male"
+          onChange={(e) => setMaleNumber(e.target.value)}
           placeholder="Enter the Number of male Lions"
         />
       </form>
-
       <div className="male">
         <h3>Male Lions: {lion.maleLions}</h3>
         <button onClick={reduceMaleNum}>dead</button>
@@ -43,8 +46,10 @@ function Lions() {
           type="number"
           name="female"
           placeholder="Enter the number of female Lions"
+          onChange={(e) => setFemaleNumber(e.target.value)}
         />
       </form>
+
       <div className="female">
         <h3>Female Lions: {lion.femaleLions}</h3>
         <button onClick={reduceFemaleNum}>dead</button>
