@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   decrementFemaleRhinos,
@@ -10,6 +10,8 @@ import rhinoImg from "../img/pexels-jo-kassis-5461808.jpg";
 function Rhinos() {
   const rhino = useSelector((state) => state.rhino);
   const dispatch = useDispatch();
+  const [maleNumber, setMaleNumber] = useState(0);
+  const [femaleNumber, setFemaleNumber] = useState(0);
   useEffect(() => {
     dispatch(getRhinoTotal());
   }, [dispatch]);
@@ -32,6 +34,7 @@ function Rhinos() {
           type="number"
           name="male"
           placeholder="Enter the Number of male Rhinos"
+          onChange={(e) => setMaleNumber(e.target.value)}
         />
         <button type="submit">Add</button>
       </form>
@@ -42,8 +45,9 @@ function Rhinos() {
       <form>
         <input
           type="number"
-          name="male"
+          name="female"
           placeholder="Enter the Number of female Rhinos"
+          onChange={(e) => setFemaleNumber(e.target.value)}
         />
         <button type="submit">Add</button>
       </form>
