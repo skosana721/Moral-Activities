@@ -5,9 +5,7 @@ import {
   decrementMaleRhinos,
   getRhinoTotal,
   saveFemaleRhinoTotal,
-  saveFemaleTotal,
   saveMaleRhinoTotal,
-  saveMaleTotal,
 } from "../redux/rhino/actions";
 import rhinoImg from "../img/pexels-jo-kassis-5461808.jpg";
 
