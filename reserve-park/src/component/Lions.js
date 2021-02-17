@@ -11,7 +11,7 @@ function Lions() {
   const lion = useSelector((state) => state.lion);
   useEffect(() => {
     dispatch(getTotal());
-  }, [lion.maleLions, lion.femaleLions, dispatch]);
+  }, [dispatch]);
   const reduceMaleNum = () => {
     if (lion.maleLions > 0) {
       dispatch(reduceMaleNumber());
@@ -23,13 +23,17 @@ function Lions() {
     }
   };
   return (
-    <div>
+    <div className="lion-section">
       <h2>Lions</h2>
       <img src={Img} alt="" />
-      <h3>Male Lions: {lion.maleLions}</h3>
-      <button onClick={reduceMaleNum}>-</button>
-      <h3>Female Lions: {lion.femaleLions}</h3>
-      <button onClick={reduceFemaleNum}>-</button>
+      <div className="male">
+        <h3>Male Lions: {lion.maleLions}</h3>
+        <button onClick={reduceMaleNum}>dead</button>
+      </div>
+      <div className="female">
+        <h3>Female Lions: {lion.femaleLions}</h3>
+        <button onClick={reduceFemaleNum}>dead</button>
+      </div>
       <p>Total Number of Lion in reserver: {lion.totalLions}</p>
     </div>
   );
