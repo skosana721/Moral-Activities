@@ -34,8 +34,8 @@ function Rhinos() {
   };
   const addFemaleNumber = (e) => {
     e.preventDefault();
-    setFemaleNumber("");
     dispatch(saveFemaleRhinoTotal(femaleNumber));
+    setFemaleNumber("");
   };
   return (
     <div className="rhino-section">

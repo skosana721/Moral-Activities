@@ -29,7 +29,6 @@ function Lions() {
   };
   const addMaleNumber = (e) => {
     e.preventDefault();
-
     dispatch(saveMaleTotal(maleNumber));
     setMaleNumber("");
   };
