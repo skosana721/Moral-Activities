@@ -5,6 +5,7 @@
 }
 .App {
   text-align: center;
+  height: 100%;
 }
 
 .App-header {
@@ -22,6 +23,30 @@
   display: flex;
   justify-content: space-evenly;
 }
-.rhino-section {
+.rhino-section,
+.lion-section {
+  display: flex;
   background-color: lightslategrey;
+  padding: 2rem;
+  border-radius: 1rem;
+  flex-direction: column;
+}
+.rhino-section .male,
+.lion-section .male {
+  display: flex;
+  justify-content: space-around;
+  margin: 1rem 0;
+}
+.rhino-section .female,
+.lion-section .female {
+  display: flex;
+  justify-content: space-around;
+  margin: 1rem 0;
+}
+.lion-section button,
+.rhino-section button {
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
 }
