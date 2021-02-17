@@ -2,6 +2,8 @@ import {
   DECREMENT_FEMALE_RHINOS,
   DECREMENT_MALE_RHINOS,
   GET_RHINO_TOTAL,
+  SAVE_FEMALE_RHINO_TOTAL,
+  SAVE_MALE_RHINO_TOTAL,
 } from "./actionTypes";
 
 const initialState = {
@@ -12,6 +14,16 @@ const initialState = {
 
 export const rhinoReducer = (state = initialState, action) => {
   switch (action.type) {
+    case SAVE_MALE_RHINO_TOTAL:
+      return {
+        ...state,
+        maleRhinos: action.payload,
+      };
+    case SAVE_FEMALE_RHINO_TOTAL:
+      return {
+        ...state,
+        femaleRhinos: action.payload,
+      };
     case DECREMENT_MALE_RHINOS:
       return {
         ...state,
