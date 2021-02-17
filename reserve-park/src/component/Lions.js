@@ -26,20 +26,25 @@ function Lions() {
     <div className="lion-section">
       <h2>Lions</h2>
       <img src={Img} alt="" />
-      <input
-        type="number"
-        name="male"
-        placeholder="Enter the Number of male Lions"
-      />
+      <form>
+        <input
+          type="number"
+          name="male"
+          placeholder="Enter the Number of male Lions"
+        />
+      </form>
+
       <div className="male">
         <h3>Male Lions: {lion.maleLions}</h3>
         <button onClick={reduceMaleNum}>dead</button>
       </div>
-      <input
-        type="number"
-        name="female"
-        placeholder="Enter the number of female Lions"
-      />
+      <form>
+        <input
+          type="number"
+          name="female"
+          placeholder="Enter the number of female Lions"
+        />
+      </form>
       <div className="female">
         <h3>Female Lions: {lion.femaleLions}</h3>
         <button onClick={reduceFemaleNum}>dead</button>
