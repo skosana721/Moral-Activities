@@ -17,12 +17,12 @@ export const lionReducer = (state = initialState, action) => {
     case SAVE_MALE_TOTAL:
       return {
         ...state,
-        maleLions: action.payload,
+        maleLions: Number(action.payload),
       };
     case SAVE_FEMALE_TOTAL:
       return {
         ...state,
-        femaleLions: action.payload,
+        femaleLions: Number(action.payload),
       };
     case REDUCE_MALE_NUMBER:
       return {
@@ -35,7 +35,7 @@ export const lionReducer = (state = initialState, action) => {
         femaleLions: state.femaleLions - 1,
       };
     case GET_TOTAL:
-      let total = state.femaleLions + state.maleLions;
+      let total = parseFloat(state.femaleLions + state.maleLions);
 
       return {
         ...state,
