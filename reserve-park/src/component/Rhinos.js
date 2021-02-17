@@ -12,7 +12,7 @@ function Rhinos() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getRhinoTotal());
-  }, [rhino.maleRhinos, rhino.femaleRhinos, dispatch]);
+  }, [dispatch]);
   const decrementMaleNumber = () => {
     if (rhino.maleRhinos > 0) {
       dispatch(decrementMaleRhinos());
@@ -27,10 +27,14 @@ function Rhinos() {
     <div className="rhino-section">
       <h2>Rhinos</h2>
       <img src={rhinoImg} alt="" />
-      <h3>Male Rhinos: {rhino.maleRhinos}</h3>
-      <button onClick={decrementMaleNumber}>dead</button>
-      <h3>Female Rhinos: {rhino.femaleRhinos}</h3>
-      <button onClick={decrementFemaleNumber}>dead</button>
+      <div className="male">
+        <h3>Male Rhinos: {rhino.maleRhinos}</h3>
+        <button onClick={decrementMaleNumber}>dead</button>
+      </div>
+      <div className="female">
+        <h3>Female Rhinos: {rhino.femaleRhinos}</h3>
+        <button onClick={decrementFemaleNumber}>dead</button>
+      </div>
       <p>Total Number Of Rhinos reserver: {rhino.totalRhinos}</p>
     </div>
   );
