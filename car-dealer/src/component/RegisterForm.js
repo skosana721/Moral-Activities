@@ -1,30 +1,66 @@
-import React from "react";
+import React, { useState } from "react";
 
 function RegisterForm() {
+  const [registerForm, setRegisterForm] = useState({
+    brand: "",
+    model: "",
+    price: "",
+    contact: "",
+    location: "",
+  });
+  const { brand, model, price, contact, location, image } = registerForm;
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setRegisterForm({ ...registerForm, [name]: value });
+  };
+
+  const handleSave = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div>
-      <form>
+      <form onSubmit={handleSave}>
         <input
           type="text"
+          onChange={handleChange}
           name="brand"
           placeholder="Enter car brand (e.g VW)"
+          value={brand}
         />
         <input
           type="text"
+          onChange={handleChange}
           name="model"
           placeholder="Enter car model (e.g Polo)"
+          value={model}
         />
-        <input type="number" name="" placeholder="" />
-        <input type="number" name="price" placeholder="Price" />
-        <input type="number" name="contact" placeholder="Contact Details" />
-        <input type="text" name="location" placeholder="Enter Location" />
+        <input type="number" onChange={handleChange} name="" placeholder="" />
         <input
-          type="file"
-          accept="image/gif, image/jpeg, image/png"
-          name="image"
-        ></input>
+          type="number"
+          onChange={handleChange}
+          name="price"
+          placeholder="Price"
+          value={price}
+        />
+        <input
+          type="number"
+          onChange={handleChange}
+          name="contact"
+          placeholder="Contact Details"
+          value={contact}
+        />
+        <input
+          type="text"
+          onChange={handleChange}
+          name="location"
+          placeholder="Enter Location"
+          value={location}
+        />
+
         <button type="submit">Submit</button>
       </form>
+      <h2>{registerForm.image}</h2>
     </div>
   );
 }
