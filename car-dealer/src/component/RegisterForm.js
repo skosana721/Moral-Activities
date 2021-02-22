@@ -8,7 +8,7 @@ function RegisterForm() {
     contact: "",
     location: "",
   });
-  const { brand, model, price, contact, location, image } = registerForm;
+  const { brand, model, price, contact, location } = registerForm;
   const handleChange = (e) => {
     const { name, value } = e.target;
     setRegisterForm({ ...registerForm, [name]: value });
@@ -60,7 +60,6 @@ function RegisterForm() {
 
         <button type="submit">Submit</button>
       </form>
-      <h2>{registerForm.image}</h2>
     </div>
   );
 }
