@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 function ViewCar() {
   const cars = useSelector((state) => state.register.registerForm);
-  console.log(cars);
+
   return (
     <div>
       {cars.map((car) => {
