@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+import { useDispatch } from "react-redux";
+import { saveRegisterData } from "../redux/registerForm/actions";
 
 function RegisterForm() {
   const [registerForm, setRegisterForm] = useState({
@@ -8,6 +11,7 @@ function RegisterForm() {
     contact: "",
     location: "",
   });
+  const dispatch = useDispatch();
   const { brand, model, price, contact, location } = registerForm;
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -16,6 +20,25 @@ function RegisterForm() {
 
   const handleSave = (e) => {
     e.preventDefault();
+    const newData = {
+      ...registerForm,
+      id: uuidv4(),
+      brand,
+      model,
+      price,
+      contact,
+      location,
+    };
+    if ((brand, model, price, contact, location)) {
+      dispatch(saveRegisterData(newData));
+      setRegisterForm({
+        brand: "",
+        model: "",
+        price: "",
+        contact: "",
+        location: "",
+      });
+    }
   };
 
   return (
