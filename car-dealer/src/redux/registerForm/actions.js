@@ -1,7 +1,7 @@
-import { SAVE_REGISTER_FORM } from "./actionTypes";
+import { SAVE_REGISTER_DATA } from "./actionTypes";
 
 export const saveRegisterData = (data) => {
   return (dispatch) => {
-    dispatch({ type: SAVE_REGISTER_FORM, payload: data });
+    dispatch({ type: SAVE_REGISTER_DATA, payload: data });
   };
 };
