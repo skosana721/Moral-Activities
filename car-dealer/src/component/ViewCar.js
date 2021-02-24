@@ -1,9 +1,16 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Table } from "reactstrap";
+import { Table, Button } from "reactstrap";
 
 function ViewCar() {
   const cars = useSelector((state) => state.register.registerForm);
+
+  const selectCar = (id) => {
+    console.log(
+      "selectedCar",
+      cars.find((car) => car.id === id)
+    );
+  };
   console.log(cars);
   return (
     <div>
@@ -28,7 +35,9 @@ function ViewCar() {
                 <td>R {car.price}</td>
                 <td>{car.contact}</td>
                 <th>{car.location}</th>
-                <td></td>
+                <td>
+                  <Button onClick={() => selectCar(car.id)}>Interested</Button>
+                </td>
               </tr>
             </tbody>
           );
