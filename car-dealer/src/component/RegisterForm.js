@@ -7,12 +7,13 @@ function RegisterForm() {
   const [registerForm, setRegisterForm] = useState({
     brand: "",
     model: "",
+    period: "",
     price: "",
     contact: "",
     location: "",
   });
   const dispatch = useDispatch();
-  const { brand, model, price, contact, location } = registerForm;
+  const { brand, model, period, price, contact, location } = registerForm;
   const handleChange = (e) => {
     const { name, value } = e.target;
     setRegisterForm({ ...registerForm, [name]: value });
@@ -25,6 +26,7 @@ function RegisterForm() {
       id: uuidv4(),
       brand,
       model,
+      period,
       price,
       contact,
       location,
@@ -34,6 +36,7 @@ function RegisterForm() {
       setRegisterForm({
         brand: "",
         model: "",
+        period: "",
         price: "",
         contact: "",
         location: "",
@@ -58,7 +61,13 @@ function RegisterForm() {
           placeholder="Enter car model (e.g Polo)"
           value={model}
         />
-        <input type="number" onChange={handleChange} name="" placeholder="" />
+        <input
+          type="number"
+          onChange={handleChange}
+          name="period"
+          placeholder="Year of ownship"
+          value={period}
+        />
         <input
           type="number"
           onChange={handleChange}
