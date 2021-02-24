@@ -1,15 +1,14 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Table, Button } from "reactstrap";
+import { selectedCar } from "../redux/viewCar/actions";
 
 function ViewCar() {
   const cars = useSelector((state) => state.register.registerForm);
-
+  const dispatch = useDispatch();
   const selectCar = (id) => {
-    console.log(
-      "selectedCar",
-      cars.find((car) => car.id === id)
-    );
+    let filteredList = cars.find((car) => car.id === id);
+    dispatch(selectedCar(filteredList));
   };
   console.log(cars);
   return (
