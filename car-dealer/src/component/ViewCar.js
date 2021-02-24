@@ -1,22 +1,39 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { Table } from "reactstrap";
 
 function ViewCar() {
   const cars = useSelector((state) => state.register.registerForm);
   console.log(cars);
   return (
     <div>
-      {cars.map((car) => {
-        return (
-          <div key={car.id}>
-            <h2>{car.brand}</h2>
-            <h2>{car.model}</h2>
-            <h2>R{car.price}</h2>
-            <h3>{car.contact}</h3>
-            <h3>{car.location}</h3>
-          </div>
-        );
-      })}
+      <Table dark>
+        <thead>
+          <tr>
+            <th>Car Brand</th>
+            <th>Car Model</th>
+            <th>Year of ownship</th>
+            <th>Price</th>
+            <th>Contact Detail</th>
+            <th>Location</th>
+          </tr>
+        </thead>
+        {cars.map((car) => {
+          return (
+            <tbody key={car.id}>
+              <tr>
+                <td>{car.brand}</td>
+                <td>{car.model}</td>
+                <td>{car.period}</td>
+                <td>R {car.price}</td>
+                <td>{car.contact}</td>
+                <th>{car.location}</th>
+                <td></td>
+              </tr>
+            </tbody>
+          );
+        })}
+      </Table>
     </div>
   );
 }
