@@ -10,7 +10,7 @@ function ViewCar() {
     let filteredList = cars.find((car) => car.id === id);
     dispatch(selectedCar(filteredList));
   };
-  console.log(cars);
+
   return (
     <div>
       <Table dark>
