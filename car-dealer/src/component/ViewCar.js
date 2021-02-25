@@ -1,18 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Table, Button } from "reactstrap";
 import { selectedCar } from "../redux/viewCar/actions";
 
 function ViewCar() {
+  const [searchList, setSearchList] = useState("");
   const cars = useSelector((state) => state.register.registerForm);
   const dispatch = useDispatch();
   const selectCar = (id) => {
     let filteredList = cars.find((car) => car.id === id);
     dispatch(selectedCar(filteredList));
   };
+  const searchResults = cars.filter((car) => {
+    return (
+      car.brand.toLowerCase().includes(searchList.toLowerCase()) ||
+      car.price.includes(searchList)
+    );
+  });
 
   return (
     <div>
+      <input
+        type="text"
+        onChange={(e) => setSearchList(e.target.value)}
+        placeholder="Search car brand / price"
+      />
       <Table dark>
         <thead>
           <tr>
@@ -24,7 +36,7 @@ function ViewCar() {
             <th>Location</th>
           </tr>
         </thead>
-        {cars.map((car) => {
+        {searchResults.map((car) => {
           return (
             <tbody key={car.id}>
               <tr>
