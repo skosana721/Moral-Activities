@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 export default function ConfirmationPage() {
   const info = useSelector((state) => state.view.viewCars);
-  console.log(info);
+
   return (
     <div>
       {info.map((item) => {
