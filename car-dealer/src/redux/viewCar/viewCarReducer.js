@@ -6,9 +6,20 @@ const initialState = {
 export const viewCarReducer = (state = initialState, action) => {
   switch (action.type) {
     case SELECTED_CAR:
+      const newList = [...state.viewCars, action.payload];
+      const filteredList = newList.reduce((acc, currCar) => {
+        const carList = acc.find((car) => car.id === currCar.id);
+
+        if (!carList) {
+          return acc.concat([currCar]);
+        } else {
+          return acc;
+        }
+      }, []);
+
       return {
         ...state,
-        viewCars: [...state.viewCars, action.payload],
+        viewCars: filteredList,
       };
     default:
       return state;
