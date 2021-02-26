@@ -7,7 +7,7 @@ import { viewCarReducer } from "./viewCar/viewCarReducer";
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["register"],
+  whitelist: ["register", "view"],
 };
 const rootReducer = combineReducers({
   register: registerFormReducer,
