@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Table, Button } from "reactstrap";
 import { selectedCar } from "../redux/viewCar/actions";
+import { Link } from "react-router-dom";
 
 function ViewCar() {
   const [searchList, setSearchList] = useState("");
@@ -47,7 +48,11 @@ function ViewCar() {
                 <td>{car.contact}</td>
                 <th>{car.location}</th>
                 <td>
-                  <Button onClick={() => selectCar(car.id)}>Interested</Button>
+                  <Link to={`/confirmationPage/${car.id}`}>
+                    <Button onClick={() => selectCar(car.id)}>
+                      Interested
+                    </Button>
+                  </Link>
                 </td>
               </tr>
             </tbody>
