@@ -27,6 +27,7 @@ export default function ConfirmationPage() {
         <CardBody>
           <CardTitle tag="h3">{car.brand}</CardTitle>
           <CardSubtitle tag="h5">{car.model}</CardSubtitle>
+          <CardText>Ownship: {car.period} year</CardText>
         </CardBody>
         <CardBody>
           <CardText tag="h6">R {car.price}</CardText>
