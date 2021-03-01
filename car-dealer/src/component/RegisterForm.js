@@ -53,6 +53,7 @@ function RegisterForm() {
           name="brand"
           placeholder="Enter car brand (e.g VW)"
           value={brand}
+          required
         />
         <input
           type="text"
@@ -60,6 +61,7 @@ function RegisterForm() {
           name="model"
           placeholder="Enter car model (e.g Polo)"
           value={model}
+          required
         />
         <input
           type="number"
@@ -67,6 +69,7 @@ function RegisterForm() {
           name="period"
           placeholder="Year of ownship"
           value={period}
+          required
         />
         <input
           type="number"
@@ -74,6 +77,7 @@ function RegisterForm() {
           name="price"
           placeholder="Price"
           value={price}
+          required
         />
         <input
           type="number"
@@ -81,6 +85,7 @@ function RegisterForm() {
           name="contact"
           placeholder="Contact Details"
           value={contact}
+          required
         />
         <input
           type="text"
@@ -88,6 +93,7 @@ function RegisterForm() {
           name="location"
           placeholder="Enter Location"
           value={location}
+          required
         />
 
         <button type="submit">Submit</button>
