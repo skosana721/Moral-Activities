@@ -20,12 +20,14 @@ function ViewCar() {
   });
 
   return (
-    <div>
-      <input
-        type="text"
-        onChange={(e) => setSearchList(e.target.value)}
-        placeholder="Search car brand / price"
-      />
+    <div className="view-cars">
+      <div className="search">
+        <input
+          type="text"
+          onChange={(e) => setSearchList(e.target.value)}
+          placeholder="Search car brand / price"
+        />
+      </div>
       <Table dark>
         <thead>
           <tr>
