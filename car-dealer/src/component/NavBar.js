@@ -14,7 +14,7 @@ function NavBar() {
 
   const toggleNavbar = () => setCollapsed(!collapsed);
   return (
-    <div>
+    <div className="nav-style">
       <Navbar color="faded" light>
         <NavbarBrand>Automotive</NavbarBrand>
         <NavbarToggler onClick={toggleNavbar} className="mr-2" />
