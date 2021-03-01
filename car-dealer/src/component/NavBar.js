@@ -6,8 +6,8 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
 } from "reactstrap";
+import { Link } from "react-router-dom";
 
 function NavBar() {
   const [collapsed, setCollapsed] = useState(true);
@@ -22,9 +22,9 @@ function NavBar() {
           <Nav navbar>
             <NavItem>
               <NavItem>
-                <NavLink href="/">Home</NavLink>
+                <Link to="/">Home</Link>
               </NavItem>
-              <NavLink href="/viewCar">View Cars</NavLink>
+              <Link to="/viewCar">View Cars</Link>
             </NavItem>
           </Nav>
         </Collapse>
