@@ -46,7 +46,7 @@ function RegisterForm() {
 
   return (
     <div>
-      <form onSubmit={handleSave}>
+      <form onSubmit={handleSave} className="register-form">
         <input
           type="text"
           onChange={handleChange}
