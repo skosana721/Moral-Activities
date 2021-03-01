@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <header className="App-header"></header>
+        <NarBar />
         <Switch>
           <Route path="/" exact component={RegisterForm} />
           <Route path="/viewCar" component={ViewCar} />
