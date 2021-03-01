@@ -15,15 +15,15 @@ function NavBar() {
   const toggleNavbar = () => setCollapsed(!collapsed);
   return (
     <div>
-      <Navbar light>
+      <Navbar color="faded" light>
         <NavbarBrand>Automotive</NavbarBrand>
         <NavbarToggler onClick={toggleNavbar} className="mr-2" />
         <Collapse isOpen={!collapsed} navbar>
           <Nav navbar>
             <NavItem>
-              <NavItem>
-                <Link to="/">Home</Link>
-              </NavItem>
+              <Link to="/">Home</Link>
+            </NavItem>
+            <NavItem>
               <Link to="/viewCar">View Cars</Link>
             </NavItem>
           </Nav>
