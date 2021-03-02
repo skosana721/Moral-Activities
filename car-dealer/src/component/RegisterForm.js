@@ -69,6 +69,9 @@ function RegisterForm() {
 
   return (
     <div>
+      <div className="form-title">
+        <h2> Sell Your Car</h2>
+      </div>
       <form onSubmit={handleSave} className="register-form">
         <input
           type="text"
