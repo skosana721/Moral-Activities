@@ -26,7 +26,7 @@ export default function SelectedCar() {
           <CardSubtitle tag="h5">{car.model}</CardSubtitle>
           <CardText>Ownship: {car.period} year</CardText>
         </CardBody>
-        <img src={car.image} alt="" />
+        <img src={car.image} alt="" width="357" height="238" />
         <CardBody>
           <CardText tag="h6">R {car.price}</CardText>
           <CardText tag="h6">{car.contact}</CardText>
