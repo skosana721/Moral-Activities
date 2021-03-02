@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,700&family=RocknRoll+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@1,700&family=Roboto:ital,wght@1,700&family=RocknRoll+One&display=swap");
 
 * {
   margin: 0;
@@ -107,4 +107,13 @@
 }
 .confirm-page h2 {
   font-family: "RocknRoll One", sans-serif;
+}
+.table thead {
+  font-family: "RocknRoll One", sans-serif;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.table tbody {
+  font-family: "Roboto Mono", monospace;
+  text-transform: capitalize;
 }
