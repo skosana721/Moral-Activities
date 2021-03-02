@@ -120,18 +120,20 @@ function RegisterForm() {
         />
         <input
           type="file"
+          id="file"
           name="image"
           onChange={imageHandler}
+          className="input-file"
           accept="image/png, image/jpeg, image/jpg"
           required
         />
+
+        <label for="file">Upload image</label>
 
         <button type="submit" className="btn">
           Submit
         </button>
       </form>
-      <img src={image} alt="" width="200" height="180" />
-      <h2>Some Image</h2>
     </div>
   );
 }
