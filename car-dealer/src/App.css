@@ -117,3 +117,28 @@
   font-family: "Roboto Mono", monospace;
   text-transform: capitalize;
 }
+
+.input-file {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+.input-file + label {
+  font-size: 1.25em;
+  width: 254px;
+  padding: 0.5rem 0;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  color: white;
+  background-color: lightgray;
+  display: inline-block;
+}
+
+.input-file:focus + label,
+.input-file + label:hover {
+  background-color: red;
+}
