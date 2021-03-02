@@ -15,7 +15,7 @@ export default function SelectedCar() {
     <div>
       <Card
         body
-        color="info"
+        color="secondary"
         style={{
           color: "white",
           margin: "0 35% ",
