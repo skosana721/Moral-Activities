@@ -13,7 +13,7 @@ function RegisterForm() {
     location: "",
     image: "",
   });
-  // const [image, setImage] = useState("")
+
   const dispatch = useDispatch();
   const {
     brand,
@@ -30,14 +30,14 @@ function RegisterForm() {
   };
 
   const imageHandler = (e) => {
-    let selected = e.target.files[0];
+    let selectedImg = e.target.files[0];
     let reader = new FileReader();
     reader.onload = () => {
       if (reader.readyState === 2) {
         setRegisterForm({ ...registerForm, image: reader.result });
       }
     };
-    reader.readAsDataURL(e.target.files[0]);
+    reader.readAsDataURL(selectedImg);
   };
 
   const handleSave = (e) => {
