@@ -29,7 +29,7 @@ function ConfirmationForm() {
   };
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="confirm-form">
         <input
           type="text"
           name="name"
@@ -37,7 +37,7 @@ function ConfirmationForm() {
           onChange={handleChange}
           required
         />
-        <br />
+
         <input
           type="text"
           name="lastName"
@@ -45,7 +45,7 @@ function ConfirmationForm() {
           onChange={handleChange}
           required
         />
-        <br />
+
         <input
           type="number"
           name="contact"
@@ -54,7 +54,7 @@ function ConfirmationForm() {
           onChange={handleChange}
           required
         />
-        <br />
+
         <input
           type="text"
           name="location"
@@ -62,13 +62,13 @@ function ConfirmationForm() {
           onChange={handleChange}
           required
         />
-        <br />
+
         <select name="payment" onChange={handleChange} required>
           <option value="">Select payment</option>
           <option value="cash">Cash</option>
           <option value="credit">Credit</option>
         </select>
-        <br />
+
         <Button color="primary" type="submit">
           Submit
         </Button>
