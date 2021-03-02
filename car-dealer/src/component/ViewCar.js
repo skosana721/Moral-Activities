@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 function ViewCar() {
   const [searchList, setSearchList] = useState("");
   const cars = useSelector((state) => state.register.registerForm);
+
   const dispatch = useDispatch();
   const selectCar = (id) => {
     let filteredList = cars.find((car) => car.id === id);
@@ -37,6 +38,7 @@ function ViewCar() {
             <th>Price</th>
             <th>Contact Detail</th>
             <th>Location</th>
+            <th>Image</th>
           </tr>
         </thead>
         {searchResults.map((car) => {
@@ -48,7 +50,10 @@ function ViewCar() {
                 <td>{car.period}</td>
                 <td>R {car.price}</td>
                 <td>{car.contact}</td>
-                <th>{car.location}</th>
+                <td>{car.location}</td>
+                <td>
+                  <img src={car.image} alt="" width="80" height="40" />
+                </td>
                 <td>
                   <Link to={`/confirmationPage/${car.id}`}>
                     <Button onClick={() => selectCar(car.id)}>
