@@ -16,7 +16,9 @@ function NavBar() {
   return (
     <div className="nav-style">
       <Navbar color="faded" light>
-        <NavbarBrand>Automotive</NavbarBrand>
+        <NavbarBrand>
+          <h2>Automotive</h2>
+        </NavbarBrand>
         <NavbarToggler onClick={toggleNavbar} className="mr-2" />
         <Collapse isOpen={!collapsed} navbar>
           <Nav navbar>
