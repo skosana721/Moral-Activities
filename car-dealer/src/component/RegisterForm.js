@@ -11,12 +11,33 @@ function RegisterForm() {
     price: "",
     contact: "",
     location: "",
+    image: "",
   });
+  // const [image, setImage] = useState("")
   const dispatch = useDispatch();
-  const { brand, model, period, price, contact, location } = registerForm;
+  const {
+    brand,
+    model,
+    period,
+    price,
+    contact,
+    location,
+    image,
+  } = registerForm;
   const handleChange = (e) => {
     const { name, value } = e.target;
     setRegisterForm({ ...registerForm, [name]: value });
+  };
+
+  const imageHandler = (e) => {
+    let selected = e.target.files[0];
+    let reader = new FileReader();
+    reader.onload = () => {
+      if (reader.readyState === 2) {
+        setRegisterForm({ ...registerForm, image: reader.result });
+      }
+    };
+    reader.readAsDataURL(e.target.files[0]);
   };
 
   const handleSave = (e) => {
@@ -30,8 +51,9 @@ function RegisterForm() {
       price,
       contact,
       location,
+      image,
     };
-    if ((brand, model, price, contact, location)) {
+    if ((brand, model, price, contact, location, image)) {
       dispatch(saveRegisterData(newData));
       setRegisterForm({
         brand: "",
@@ -40,6 +62,7 @@ function RegisterForm() {
         price: "",
         contact: "",
         location: "",
+        image: "",
       });
     }
   };
@@ -95,11 +118,20 @@ function RegisterForm() {
           value={location}
           required
         />
+        <input
+          type="file"
+          name="image"
+          onChange={imageHandler}
+          accept="image/png, image/jpeg, image/jpg"
+          required
+        />
 
         <button type="submit" className="btn">
           Submit
         </button>
       </form>
+      <img src={image} alt="" width="200" height="180" />
+      <h2>Some Image</h2>
     </div>
   );
 }
