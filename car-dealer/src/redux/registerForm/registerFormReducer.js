@@ -1,4 +1,4 @@
-import { SAVE_REGISTER_DATA } from "./actionTypes";
+import { CLOSE_MODEL, SAVE_REGISTER_DATA } from "./actionTypes";
 
 const initialState = {
   registerForm: [],
@@ -14,6 +14,11 @@ export const registerFormReducer = (state = initialState, action) => {
         isModelOpen: !state.isModelOpen,
         modelContent: "Form submitted successfully",
         registerForm: [...state.registerForm, action.payload],
+      };
+    case CLOSE_MODEL:
+      return {
+        ...state,
+        isModelOpen: false,
       };
     default:
       return state;
