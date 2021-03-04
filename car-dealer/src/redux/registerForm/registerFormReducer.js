@@ -11,7 +11,7 @@ export const registerFormReducer = (state = initialState, action) => {
     case SAVE_REGISTER_DATA:
       return {
         ...state,
-        isModelOpen: true,
+        isModelOpen: !state.isModelOpen,
         modelContent: "Form submitted successfully",
         registerForm: [...state.registerForm, action.payload],
       };
