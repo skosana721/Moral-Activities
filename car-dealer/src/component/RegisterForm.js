@@ -14,7 +14,7 @@ function RegisterForm() {
     location: "",
     image: "",
   });
-  const [isModelOpen, setIsModelOpen] = useState(false);
+
   const dispatch = useDispatch();
   const {
     brand,
@@ -56,7 +56,7 @@ function RegisterForm() {
     };
     if ((brand, model, price, contact, location, image)) {
       dispatch(saveRegisterData(newData));
-      setIsModelOpen(true);
+
       setRegisterForm({
         brand: "",
         model: "",
@@ -74,7 +74,7 @@ function RegisterForm() {
       <div className="form-title">
         <h2> Sell Your Car</h2>
       </div>
-      {isModelOpen && <Model />}
+      <Model />
 
       <form onSubmit={handleSave} className="register-form">
         <input
