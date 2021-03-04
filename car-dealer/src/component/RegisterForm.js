@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { useDispatch } from "react-redux";
 import { saveRegisterData } from "../redux/registerForm/actions";
+import Model from "./Model";
 
 function RegisterForm() {
   const [registerForm, setRegisterForm] = useState({
@@ -13,7 +14,7 @@ function RegisterForm() {
     location: "",
     image: "",
   });
-
+  const [isModelOpen, setIsModelOpen] = useState(false);
   const dispatch = useDispatch();
   const {
     brand,
@@ -55,6 +56,7 @@ function RegisterForm() {
     };
     if ((brand, model, price, contact, location, image)) {
       dispatch(saveRegisterData(newData));
+      setIsModelOpen(true);
       setRegisterForm({
         brand: "",
         model: "",
@@ -72,6 +74,8 @@ function RegisterForm() {
       <div className="form-title">
         <h2> Sell Your Car</h2>
       </div>
+      {isModelOpen && <Model />}
+
       <form onSubmit={handleSave} className="register-form">
         <input
           type="text"
