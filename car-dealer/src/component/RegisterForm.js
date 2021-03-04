@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { useDispatch } from "react-redux";
-import { saveRegisterData } from "../redux/registerForm/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { closeModel, saveRegisterData } from "../redux/registerForm/actions";
 import Model from "./Model";
 
 function RegisterForm() {
@@ -14,7 +14,12 @@ function RegisterForm() {
     location: "",
     image: "",
   });
-
+  const isModelOpen = useSelector((state) => state.register.isModelOpen);
+  useEffect(() => {
+    setTimeout(() => {
+      dispatch(closeModel());
+    }, 3000);
+  }, [isModelOpen]);
   const dispatch = useDispatch();
   const {
     brand,
@@ -74,7 +79,7 @@ function RegisterForm() {
       <div className="form-title">
         <h2> Sell Your Car</h2>
       </div>
-      <Model />
+      {isModelOpen && <Model />}
 
       <form onSubmit={handleSave} className="register-form">
         <input
