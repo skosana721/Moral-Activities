@@ -52,7 +52,7 @@ function ViewCar() {
                 <td>{car.contact}</td>
                 <td>{car.location}</td>
                 <td>
-                  <img src={car.image} alt="" width="80" height="40" />
+                  <img src={car.image} alt="" width="100" height="80" />
                 </td>
                 <td>
                   <Link to={`/confirmationPage/${car.id}`}>
