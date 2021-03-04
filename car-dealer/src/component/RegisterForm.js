@@ -135,7 +135,7 @@ function RegisterForm() {
           required
         />
 
-        <label for="file">Upload image</label>
+        <label htmlFor="file">Upload image</label>
 
         <button type="submit" className="btn">
           Submit
