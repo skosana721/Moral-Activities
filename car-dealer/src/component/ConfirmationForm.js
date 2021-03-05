@@ -1,5 +1,8 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Button } from "reactstrap";
+import { purchasedCar } from "../redux/viewCar/actions";
+
 function ConfirmationForm() {
   const [formInfo, setFormInfo] = useState({
     name: "",
@@ -8,6 +11,7 @@ function ConfirmationForm() {
     location: "",
     payment: "",
   });
+  const dispatch = useDispatch();
   const { name, lastName, contact, location, payment } = formInfo;
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -18,6 +22,7 @@ function ConfirmationForm() {
     const newForm = { ...formInfo, name, lastName, contact, payment, location };
     if ((name, lastName, contact, location, payment)) {
       setFormInfo(newForm);
+      dispatch(purchasedCar());
       setFormInfo({
         name: "",
         lastName: "",
