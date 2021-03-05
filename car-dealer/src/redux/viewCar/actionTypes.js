@@ -1,1 +1,2 @@
 export const SELECTED_CAR = "SELECTED_CAR";
+export const PURCHASED_CAR = "PURCHASED_CAR";
