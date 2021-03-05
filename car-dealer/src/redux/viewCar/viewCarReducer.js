@@ -1,4 +1,4 @@
-import { SELECTED_CAR } from "./actionTypes";
+import { PURCHASED_CAR, SELECTED_CAR } from "./actionTypes";
 
 const initialState = {
   viewCars: [],
@@ -20,6 +20,11 @@ export const viewCarReducer = (state = initialState, action) => {
       return {
         ...state,
         viewCars: filteredList,
+      };
+    case PURCHASED_CAR:
+      return {
+        ...state,
+        viewCars: [],
       };
     default:
       return state;
